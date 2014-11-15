@@ -1,7 +1,9 @@
 {
   "nature": [
-    {"name": "nature", "attribute": "natural"},
     {"name": "animal", "attribute": "animalic"},
-    {"name": "plant", "attribute": "vegetative"}
+    {"name": "plant", "attribute": "vegetative"},
+    {"name": "vine", "attribute": "vegetative"},
+    {"name": "leaf", "attribute": "vegetative"},
+    {"name": "tree", "attribute": "arboreal"}
   ]
 }
