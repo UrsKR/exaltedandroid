@@ -2,6 +2,8 @@ package anathema.android.manse;
 
 import anathema.android.DiceAndCoins;
 
+import java.util.HashMap;
+
 public class GenerateManse {
 
   private DiceAndCoins diceAndCoins;
@@ -12,28 +14,17 @@ public class GenerateManse {
 
   public ManseSpecialty generate() {
     int roll = diceAndCoins.rollTenSidedDie();
-    switch (roll) {
-      case (1):
-        return new Squatters();
-      case (2):
-        return new LocalGods();
-      case (3):
-        return new GuildAwareness();
-      case (4):
-        return new PartialUncapping();
-      case (5):
-        return new HistoricalLandmark();
-      case (6):
-        return new DangerousLocation();
-      case (7):
-        return new EncryptedLibrary();
-      case (8):
-        return new OnLoan();
-      case (9):
-        return new Networked();
-      case (10):
-        return new TreasureTrove();
-    }
-    throw new IllegalArgumentException("Roll out of range [1,10]");
+    HashMap<Integer, ManseSpecialty> specialty = new HashMap<>();
+    specialty.put(1, new Squatters());
+    specialty.put(2, new LocalGods());
+    specialty.put(3, new GuildAwareness());
+    specialty.put(4, new PartialUncapping());
+    specialty.put(5, new HistoricalLandmark());
+    specialty.put(6, new DangerousLocation());
+    specialty.put(7, new EncryptedLibrary());
+    specialty.put(8, new OnLoan());
+    specialty.put(9, new Networked());
+    specialty.put(10, new TreasureTrove());
+    return specialty.get(roll);
   }
 }
