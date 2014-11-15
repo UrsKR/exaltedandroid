@@ -28,7 +28,7 @@ public class ManseFragment extends Fragment {
                            Bundle savedInstanceState) {
     View view = inflater.inflate(R.layout.fragment_manse, container, false);
     nameView = (TextView) view.findViewById(R.id.text_name);
-    resultView = (TextView) view.findViewById(R.id.text_result);
+    resultView = (TextView) view.findViewById(R.id.text_detail);
     rewardView = (TextView) view.findViewById(R.id.text_reward);
     riskView = (TextView) view.findViewById(R.id.text_risk);
     return view;
