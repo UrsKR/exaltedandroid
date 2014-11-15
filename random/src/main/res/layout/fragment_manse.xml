@@ -1,0 +1,47 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="anathema.android.manse.ManseFragment">
+
+    <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent" android:layout_gravity="center_horizontal|top">
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:id="@+id/text_name"
+                android:layout_below="@+id/button_manse" android:layout_centerHorizontal="true"
+                android:layout_marginTop="20dp" android:layout_marginBottom="20dp" android:textStyle="bold"/>
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Risk"
+                android:id="@+id/textView" android:layout_below="@+id/text_name"
+                android:layout_marginBottom="30dp"/>
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Reward"
+                android:id="@+id/textView2" android:layout_below="@+id/textView"
+                android:layout_toStartOf="@+id/button_manse" android:layout_marginBottom="30dp"/>
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/text_risk" android:layout_toEndOf="@+id/textView2"
+                android:layout_above="@+id/textView2"/>
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/text_reward" android:layout_below="@+id/text_risk" android:layout_toEndOf="@+id/textView2"
+                android:layout_alignParentEnd="true"/>
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/text_result"
+                android:layout_alignParentStart="true" android:layout_alignParentBottom="true"
+                android:layout_alignParentEnd="true" android:layout_below="@+id/textView2"/>
+    </RelativeLayout>
+
+</FrameLayout>
