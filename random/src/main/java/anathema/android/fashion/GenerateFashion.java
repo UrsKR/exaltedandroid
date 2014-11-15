@@ -2,6 +2,10 @@ package anathema.android.fashion;
 
 import anathema.android.DiceAndCoins;
 import anathema.android.Flip;
+import anathema.android.util.FileToString;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -10,9 +14,11 @@ import static anathema.android.Flip.Tails;
 
 public class GenerateFashion {
   private DiceAndCoins diceAndCoins;
+  private FileToString fileToString;
 
-  public GenerateFashion(DiceAndCoins diceAndCoins) {
+  public GenerateFashion(DiceAndCoins diceAndCoins, FileToString fileToString) {
     this.diceAndCoins = diceAndCoins;
+    this.fileToString = fileToString;
   }
 
   public Fashion generate() {
@@ -117,68 +123,30 @@ public class GenerateFashion {
 
   private String rollPattern() {
     int roll = rollD10();
-    switch (roll) {
-      case 1:
-        return "dragon";
-      case 2:
-        return "demon";
-      case 3:
-        return "elemental";
-      case 4:
-        if (flipCoin() == Tails) {
-          return "ghost";
-        }
-        return "skull";
-      case 5:
-        if (flipCoin() == Tails) {
-          return "fey creature";
-        }
-        return "fairy noble";
-      case 6:
-        return "sun";
-      case 7:
-        return "moon";
-      case 8:
-        return "star";
-      case 9:
-        if (flipCoin() == Tails) {
-          return "heptagram";
-        }
-        return "pentagram";
-      case 10:
-        if (flipCoin() == Tails) {
-          return "animal";
-        }
-        return "plant";
+    if (roll <= 5) {
+      return pickNameFromJsonArray("creatures.json", "creatures");
     }
-    throw new IllegalArgumentException("Roll out of range [1,10]");
+    if (roll <= 8) {
+      return pickNameFromJsonArray("astrology.json", "astrology");
+    }
+    if (roll == 9) {
+      return pickNameFromJsonArray("geometry.json", "geometry");
+    }
+    return pickNameFromJsonArray("nature.json", "nature");
   }
 
   private String rollPatternAdjective() {
     int roll = rollD10();
-    switch (roll) {
-      case 1:
-        return "draconic";
-      case 2:
-        return "demonic";
-      case 3:
-        return "elemental";
-      case 4:
-        return "ghostly";
-      case 5:
-        return "fey";
-      case 6:
-        return "solar";
-      case 7:
-        return "lunar";
-      case 8:
-        return "astrologic";
-      case 9:
-        return "geometric";
-      case 10:
-        return "animalic";
+    if (roll <= 5) {
+      return pickAttributeFromJsonArray("creatures.json", "creatures");
     }
-    throw new IllegalArgumentException("Roll out of range [1,10]");
+    if (roll <= 8) {
+      return pickAttributeFromJsonArray("astrology.json", "astrology");
+    }
+    if (roll == 9) {
+      return pickAttributeFromJsonArray("geometry.json", "geometry");
+    }
+    return pickAttributeFromJsonArray("nature.json", "nature");
   }
 
   private String rollAnyColor() {
@@ -189,17 +157,13 @@ public class GenerateFashion {
     return rollMaterialColor();
   }
 
-
   private String rollPrismaticColor() {
-    int roll = rollD10();
-    String[] colors = new String[]{"red", "orange", "yellow", "green", "blue", "indigo", "violet", "black", "white", "grey"};
-    return colors[roll - 1];
+    return pickElementFromJsonArray("prismaticColors.json", "colors");
   }
 
+
   private String rollMaterialColor() {
-    int roll = rollD10();
-    String[] colors = new String[]{"ruby", "amber", "orichalcum", "emerald", "starmetal", "sapphire", "amethyst", "soulsteel", "moonsilver", "obsidian"};
-    return colors[roll - 1];
+    return pickElementFromJsonArray("materialColors.json", "colors");
   }
 
   private Flip flipCoin() {
@@ -212,5 +176,35 @@ public class GenerateFashion {
 
   private int rollD20() {
     return diceAndCoins.rollTwentySidedDie();
+  }
+
+  private String pickElementFromJsonArray(String filename, String arrayName) {
+    int roll = rollD10();
+    String content = fileToString.loadFile(filename);
+    try {
+      JSONArray colors = new JSONObject(content).getJSONArray(arrayName);
+      return colors.get(roll - 1).toString();
+    } catch (JSONException e) {
+      throw new RuntimeException(e);
+    }
+  }
+
+  private String pickNameFromJsonArray(String filename, String array) {
+    return pickPropertyFromJsonArray(filename, array, "name");
+  }
+  
+  private String pickAttributeFromJsonArray(String filename, String array) {
+    return pickPropertyFromJsonArray(filename, array, "attribute");
+  }
+
+  private String pickPropertyFromJsonArray(String filename, String array, String property) {
+    String content = fileToString.loadFile(filename);
+    try {
+      JSONArray creatures = new JSONObject(content).getJSONArray(array);
+      int roll = diceAndCoins.rollWithSides(creatures.length());
+      return creatures.getJSONObject(roll - 1).getString(property);
+    } catch (JSONException e) {
+      throw new RuntimeException(e);
+    }
   }
 }

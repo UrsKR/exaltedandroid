@@ -5,10 +5,6 @@ import java.util.Random;
 public class DiceAndCoins {
   private final Random random = new Random();
 
-  public int rollTenSidedDie() {
-    return random.nextInt(10) + 1;
-  }
-
   public Flip flipACoin() {
     boolean flip = random.nextBoolean();
     if (flip) {
@@ -17,7 +13,15 @@ public class DiceAndCoins {
     return Flip.Tails;
   }
 
+  public int rollTenSidedDie() {
+    return rollWithSides(10);
+  }
+
   public int rollTwentySidedDie() {
-    return random.nextInt(20) + 1;
+    return rollWithSides(20);
+  }
+
+  public int rollWithSides(int sides) {
+    return random.nextInt(sides) + 1;
   }
 }

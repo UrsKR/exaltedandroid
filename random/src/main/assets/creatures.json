@@ -1,0 +1,12 @@
+{
+  "creatures":
+  [
+    {"name": "dragon", "attribute": "draconic"},
+    {"name": "demon", "attribute":"demonic"},
+    {"name": "elemental", "attribute":"elemental"},
+    {"name": "ghost", "attribute":"ghostly"},
+    {"name": "fey creature", "attribute":"fey"},
+    {"name": "fairy noble", "attribute":"fey"},
+    {"name": "animal", "attribute":"animalic"}
+  ]
+}

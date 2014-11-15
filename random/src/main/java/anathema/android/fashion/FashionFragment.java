@@ -2,6 +2,7 @@ package anathema.android.fashion;
 
 
 import anathema.android.DiceAndCoins;
+import anathema.android.util.FileToString;
 import android.os.Bundle;
 import android.app.Fragment;
 import android.view.LayoutInflater;
@@ -32,7 +33,7 @@ public class FashionFragment extends Fragment {
   }
 
   public void generateFashion(DiceAndCoins diceAndCoins) {
-    Fashion fashion = new GenerateFashion(diceAndCoins).generate();
+    Fashion fashion = new GenerateFashion(diceAndCoins, new FileToString(getActivity().getAssets())).generate();
     fashionTitleView.setText("Fashion");
     fashionView.setText(fashion.asText());
   }

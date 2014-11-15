@@ -1,0 +1,6 @@
+{
+  "nature": [
+    {"name": "animal", "attribute": "animalic"},
+    {"name": "plant", "attribute": "vegetative"}
+  ]
+}
