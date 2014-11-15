@@ -1,5 +1,6 @@
 {
   "nature": [
+    {"name": "nature", "attribute": "natural"},
     {"name": "animal", "attribute": "animalic"},
     {"name": "plant", "attribute": "vegetative"}
   ]
