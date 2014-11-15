@@ -1,21 +1,17 @@
 package anathema.android.manse;
 
-import anathema.android.Die;
+import anathema.android.DiceAndCoins;
 
 public class GenerateManse {
 
-  private Die die;
+  private DiceAndCoins diceAndCoins;
 
-  public GenerateManse(Die die) {
-    this.die = die;
+  public GenerateManse(DiceAndCoins diceAndCoins) {
+    this.diceAndCoins = diceAndCoins;
   }
 
   public ManseSpecialty generate() {
-    int roll = die.roll();
-    return lookUpManseSpecialty(roll);
-  }
-
-  private ManseSpecialty lookUpManseSpecialty(int roll) {
+    int roll = diceAndCoins.rollTenSidedDie();
     switch (roll) {
       case (1):
         return new Squatters();

@@ -26,8 +26,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/button.fashion"
                     android:id="@+id/button_fashion"
-                    android:onClick="generateLooks"
-                    android:enabled="false"/>
+                    android:onClick="generateFashion"/>
             <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

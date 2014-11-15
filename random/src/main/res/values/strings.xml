@@ -16,5 +16,6 @@
     <string name="credits_text">Content by Joseph Meyer\n(http://lovethelabyrinth.blogspot.com)\n\nCode by Urs Reupke\n(http://anathema.github.io)</string>
     <string name="credits_title">Credits</string>
     <string name="toast_dieroll">Rolled\u0020</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

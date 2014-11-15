@@ -1,5 +1,6 @@
 package anathema.android;
 
+import anathema.android.fashion.FashionFragment;
 import anathema.android.manse.ManseFragment;
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -16,27 +17,28 @@ import android.widget.TextView;
 
 public class MainActivity extends Activity {
 
-  private Die die = new Die();
+  private DiceAndCoins diceAndCoins = new DiceAndCoins();
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
-
     EmptyFragment empty= new EmptyFragment();
     getFragmentManager().beginTransaction().add(R.id.fragment_container, empty).commit();
   }
 
-  public void generateLooks(View view) {
-    //nothing to do
-  }
-
-  //http://lovethelabyrinth.blogspot.de/2014/11/this-old-manse.html
   public void generateManse(View view) {
     ManseFragment manse = new ManseFragment();
     getFragmentManager().beginTransaction().replace(R.id.fragment_container, manse).commit();
     getFragmentManager().executePendingTransactions();
-    manse.generateManse(die);
+    manse.generateManse(diceAndCoins);
+  }
+
+  public void generateFashion(View view) {
+    FashionFragment fashion = new FashionFragment();
+    getFragmentManager().beginTransaction().replace(R.id.fragment_container, fashion).commit();
+    getFragmentManager().executePendingTransactions();
+    fashion.generateFashion(diceAndCoins);
   }
 
   @Override

@@ -1,6 +1,6 @@
 package anathema.android.manse;
 
-import anathema.android.Die;
+import anathema.android.DiceAndCoins;
 import anathema.android.R;
 import android.app.Fragment;
 import android.content.Context;
@@ -34,8 +34,8 @@ public class ManseFragment extends Fragment {
     return view;
   }
 
-  public void generateManse(Die die) {
-    ManseSpecialty specialty = new GenerateManse(die).generate();
+  public void generateManse(DiceAndCoins diceAndCoins) {
+    ManseSpecialty specialty = new GenerateManse(diceAndCoins).generate();
     Context context = getActivity().getApplicationContext();
     Toast toast = Toast.makeText(context, context.getString(R.string.toast_dieroll)+ specialty.getRoll(), Toast.LENGTH_SHORT);
     toast.show();
