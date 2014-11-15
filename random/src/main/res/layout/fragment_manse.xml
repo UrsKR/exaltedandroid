@@ -6,7 +6,7 @@
 
     <RelativeLayout
             android:layout_width="fill_parent"
-            android:layout_height="fill_parent" android:layout_gravity="center_horizontal|top">
+            android:layout_height="fill_parent" android:layout_gravity="left|top">
         <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -18,30 +18,34 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Risk"
-                android:id="@+id/textView" android:layout_below="@+id/text_name"
-                android:layout_marginBottom="30dp"/>
+                android:id="@+id/label_risk" android:layout_below="@+id/text_name"
+                android:layout_marginBottom="30dp"
+                android:layout_alignRight="@+id/label_reward" android:layout_alignStart="@id/label_reward"/>
         <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Reward"
-                android:id="@+id/textView2" android:layout_below="@+id/textView"
-                android:layout_toStartOf="@+id/button_manse" android:layout_marginBottom="30dp"/>
+                android:id="@+id/label_reward" android:layout_below="@+id/label_risk"
+                android:layout_toStartOf="@+id/button_manse" android:layout_marginBottom="30dp"
+                android:layout_marginRight="10dp"/>
         <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/text_risk" android:layout_toEndOf="@+id/textView2"
-                android:layout_above="@+id/textView2"/>
+                android:id="@+id/text_risk" android:layout_toEndOf="@+id/label_reward"
+                android:layout_alignTop="@+id/label_risk"
+                />
         <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/text_reward" android:layout_below="@+id/text_risk" android:layout_toEndOf="@+id/textView2"
-                android:layout_alignParentEnd="true"/>
+                android:id="@+id/text_reward" android:layout_toEndOf="@+id/label_reward"
+                android:layout_alignParentEnd="true" android:layout_alignTop="@+id/label_reward"/>
         <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/text_result"
                 android:layout_alignParentStart="true" android:layout_alignParentBottom="true"
-                android:layout_alignParentEnd="true" android:layout_below="@+id/textView2"/>
+                android:layout_alignParentEnd="true" android:layout_below="@+id/label_reward"
+                android:layout_marginTop="10dp"/>
     </RelativeLayout>
 
 </FrameLayout>
