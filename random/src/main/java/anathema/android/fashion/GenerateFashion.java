@@ -26,29 +26,12 @@ public class GenerateFashion {
     rollWearer(fashion);
     fashion.primaryPiece = rollPrimaryPiece();
     fashion.secondaryPiece = rollSecondaryPiece();
-    fashion.primaryAccessory = rollPrimaryAccessory();
+    //fashion.primaryAccessory = rollPrimaryAccessory();
     //rollSecondaryAccessory();
     //rollHair();
     fashion.primaryColor = rollAnyColor();
     fashion.highlightColor = rollAnyColor();
     return fashion;
-  }
-
-  private String rollPrimaryAccessory() {
-    /*
-    Primary Accessory (Time to add some flair)
-    Military War Fan (Folding/Solid)
-    Fully Body Jewelry (Roll on Pattern Table for design)
-    Prayer Beads
-    Detail Body Tattoo (Roll on Pattern Table and Color Table)
-    Detailed Clothing Pattern (Roll on Pattern Table and Color Table)
-    Long Scarf/Obi (Belly Wrap)
-    Impressive Sandals/Boots
-    Religious/Family Tabard (Roll on Pattern and Color Table for design and primary color.)
-    Multiple Piercings (Metallic/Bone)
-    Roll on Secondary Accessory Table and use that result as your primary element. If it has a contradictory element consider them layered either in different locations or mingled together as one. Ignore duplicate rolls or 10 again.
-            */
-    return null;
   }
 
   private void rollWearer(Fashion fashion) {
@@ -178,12 +161,12 @@ public class GenerateFashion {
     return diceAndCoins.rollTwentySidedDie();
   }
 
-  private String pickElementFromJsonArray(String filename, String arrayName) {
-    int roll = rollD10();
+  private String pickElementFromJsonArray(String filename, String array) {
     String content = fileToString.loadFile(filename);
     try {
-      JSONArray colors = new JSONObject(content).getJSONArray(arrayName);
-      return colors.get(roll - 1).toString();
+      JSONArray entries = new JSONObject(content).getJSONArray(array);
+      int roll = diceAndCoins.rollWithSides(entries.length());
+      return entries.getString(roll - 1);
     } catch (JSONException e) {
       throw new RuntimeException(e);
     }
@@ -200,9 +183,9 @@ public class GenerateFashion {
   private String pickPropertyFromJsonArray(String filename, String array, String property) {
     String content = fileToString.loadFile(filename);
     try {
-      JSONArray creatures = new JSONObject(content).getJSONArray(array);
-      int roll = diceAndCoins.rollWithSides(creatures.length());
-      return creatures.getJSONObject(roll - 1).getString(property);
+      JSONArray entries = new JSONObject(content).getJSONArray(array);
+      int roll = diceAndCoins.rollWithSides(entries.length());
+      return entries.getJSONObject(roll - 1).getString(property);
     } catch (JSONException e) {
       throw new RuntimeException(e);
     }
