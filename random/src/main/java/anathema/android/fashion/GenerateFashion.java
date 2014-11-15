@@ -51,7 +51,7 @@ public class GenerateFashion {
       String unitSymbol = rollPattern();
       return "{0} presents a uniform with a {2} " + unitSymbol + " on its high collar.";
     }
-    if (roll > 19) {
+    if (roll >= 19) {
       return rollSecondaryPiece();
     } else {
       Map<Integer, String> piece = new HashMap<>();
@@ -81,7 +81,7 @@ public class GenerateFashion {
       String pattern = rollPatternAdjective();
       return pattern + " symbols give {1} appearance a spiritual air.";
     }
-    if (roll > 19) {
+    if (roll >= 19) {
       return rollPrimaryPiece();
     }
     Map<Integer, String> piece = new HashMap<>();

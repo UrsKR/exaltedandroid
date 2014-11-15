@@ -13,6 +13,9 @@ public class Fashion {
 
   public String asText() {
     StringBuilder text = new StringBuilder();
+    System.out.println(highlightColor);
+    System.out.println(primaryPiece);
+    System.out.println(secondaryPiece);
     String primary = MessageFormat.format(primaryPiece, personal, possessive, highlightColor);
     text.append(capitalize(primary));
     text.append(" ");
