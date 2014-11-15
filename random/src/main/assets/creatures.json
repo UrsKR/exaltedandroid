@@ -6,6 +6,8 @@
     {"name": "elemental", "attribute":"elemental"},
     {"name": "ghost", "attribute":"ghostly"},
     {"name": "fey creature", "attribute":"fey"},
-    {"name": "fairy noble", "attribute":"fey"}
+    {"name": "fairy noble", "attribute":"fey"},
+    {"name": "spirit", "attribute":"spiritual"},
+    {"name": "god", "attribute":"divine"}
   ]
 }
