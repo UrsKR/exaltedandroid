@@ -25,7 +25,7 @@ public class GenerateFashion {
     fashion.secondaryPiece = rollSecondaryPiece();
     //fashion.primaryAccessory = rollPrimaryAccessory();
     //rollSecondaryAccessory();
-    //rollHair();
+    fashion.hairStyle = rollHair();
     fashion.primaryColor = rollAnyColor();
     fashion.highlightColor = rollAnyColor();
     return fashion;
@@ -64,6 +64,10 @@ public class GenerateFashion {
       return pattern + " symbols give {1} appearance a spiritual air.";
     }
     return pickElementFromJsonArray("secondaryPiece.json", "secondaryPiece");
+  }
+
+  private String rollHair() {
+    return pickNameFromJsonArray("hairstyles.json", "hairstyles");
   }
 
   private String rollPattern() {

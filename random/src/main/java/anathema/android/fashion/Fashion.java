@@ -10,6 +10,7 @@ public class Fashion {
   public String primaryPiece;
   public String secondaryPiece;
   public String primaryAccessory;
+  public String hairStyle;
 
   public String asText() {
     StringBuilder text = new StringBuilder();
@@ -21,6 +22,9 @@ public class Fashion {
     text.append(" ");
     String secondary = MessageFormat.format(secondaryPiece, personal, possessive, highlightColor);
     text.append(capitalize(secondary));
+    text.append("\n");
+    String hair = MessageFormat.format(hairStyle, personal, possessive, highlightColor);
+    text.append(capitalize(hair));
     return text.toString();
   }
 
