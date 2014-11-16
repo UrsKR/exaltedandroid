@@ -24,7 +24,7 @@ public class GenerateFashion {
     fashion.primaryPiece = rollPrimaryPiece();
     fashion.secondaryPiece = rollSecondaryPiece();
     fashion.primaryAccessory = rollPrimaryAccessory();
-    //rollSecondaryAccessory();
+    fashion.secondaryAccessory =  rollSecondaryAccessory();
     fashion.hairStyle = rollHair();
     fashion.primaryColor = rollAnyColor();
     fashion.highlightColor = rollAnyColor();
@@ -100,7 +100,27 @@ public class GenerateFashion {
   }
 
   private String rollSecondaryAccessory() {
-    return "";
+    int roll = rollD20();
+    if (roll >= 19) {
+      return rollPrimaryAccessory();
+    }
+    if (roll >= 17) {
+      String pattern = rollPattern();
+      return "{1} hands bear a number of heavy rings, all fashioned after a " + pattern + "'s form.";
+    }
+    if (roll >= 15) {
+      String pattern = rollPattern();
+      return "{0} hides {1} face behind a " + pattern + " mask.";
+    }
+    if (roll >= 13) {
+      String pattern = rollPattern();
+      return "Deep scars cover {1} skin, formed after " + pattern + "s. No doubt {0} acquired them in a series of painful rituals.";
+    }
+    if (roll >= 11) {
+      String pattern = rollPattern();
+      return "{1} belt is home to a beautiful brush, the handle finely carved to represent a " + pattern + ".";
+    }
+    return pickElementFromJsonArray("secondaryAccessory.json", "secondaryAccessory");
   }
 
   private String rollHair() {

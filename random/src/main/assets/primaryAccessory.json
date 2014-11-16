@@ -1,14 +1,14 @@
 {
   "primaryAccessory":[
-    "A solid war fan of military make covers {1} back.",
-    "A pair of folding war fans hang from {1} belt.",
-    "{0} wears a necklace of massive wooden prayer beads.",
-    "{1} wrists hang with many rows of prayer beads.",
-    "A long leather scarf is wrapped around {1} belly multiple times.",
-    "An obi is tied around {1} waist, with a bow for flourish.",
-    "You cannot help but stare at {1} sandals.",
-    "You cannot help but stare at {1} boots.",
-    "Multiple metallic piercings complement the image.",
-    "Numerous piercings of bone tell of success in battle or on the hunt."
+    "A solid {2} war fan of military make covers {1} back.",
+    "A pair of folding {2} war fans hang from {1} belt.",
+    "{0} wears a necklace of massive {2} prayer beads.",
+    "{1} wrists hang with many rows of {2} prayer beads.",
+    "A long {2} leather scarf is wrapped around {1} belly multiple times.",
+    "An {2} obi is tied around {1} waist, with a bow for flourish.",
+    "You cannot help but stare at {1} {2} sandals.",
+    "You cannot help but stare at {1} {2} boots.",
+    "Multiple {2} metallic piercings complement the image.",
+    "Numerous piercings of bone colored as {2} tell of success in battle or on the hunt."
   ]
 }

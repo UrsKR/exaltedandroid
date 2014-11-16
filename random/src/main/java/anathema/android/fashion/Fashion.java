@@ -10,6 +10,7 @@ public class Fashion {
   public String primaryPiece;
   public String secondaryPiece;
   public String primaryAccessory;
+  public String secondaryAccessory;
   public String hairStyle;
 
   public String asText() {
@@ -17,16 +18,18 @@ public class Fashion {
     System.out.println(highlightColor);
     System.out.println(primaryPiece);
     System.out.println(secondaryPiece);
-    String primary = MessageFormat.format(primaryPiece, personal, possessive, highlightColor);
+    String primary = MessageFormat.format(primaryPiece, personal, possessive, highlightColor, primaryColor);
     text.append(capitalize(primary));
     text.append(" ");
-    String secondary = MessageFormat.format(secondaryPiece, personal, possessive, highlightColor);
+    String secondary = MessageFormat.format(secondaryPiece, personal, possessive, highlightColor, primaryColor);
     text.append(capitalize(secondary));
     text.append("\n");
-    String firstAccessory = MessageFormat.format(primaryAccessory, personal, possessive, highlightColor);
+    String firstAccessory = MessageFormat.format(primaryAccessory, personal, possessive, highlightColor, primaryColor);
     text.append(capitalize(firstAccessory));
+    String secondAccessory = MessageFormat.format(secondaryAccessory, personal, possessive, highlightColor, primaryColor);
+    text.append(capitalize(secondAccessory));
     text.append("\n");
-    String hair = MessageFormat.format(hairStyle, personal, possessive, highlightColor);
+    String hair = MessageFormat.format(hairStyle, personal, possessive, highlightColor, primaryColor);
     text.append(capitalize(hair));
     return text.toString();
   }
