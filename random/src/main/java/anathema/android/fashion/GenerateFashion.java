@@ -23,7 +23,7 @@ public class GenerateFashion {
     rollWearer(fashion);
     fashion.primaryPiece = rollPrimaryPiece();
     fashion.secondaryPiece = rollSecondaryPiece();
-    //fashion.primaryAccessory = rollPrimaryAccessory();
+    fashion.primaryAccessory = rollPrimaryAccessory();
     //rollSecondaryAccessory();
     fashion.hairStyle = rollHair();
     fashion.primaryColor = rollAnyColor();
@@ -64,6 +64,43 @@ public class GenerateFashion {
       return pattern + " symbols give {1} appearance a spiritual air.";
     }
     return pickElementFromJsonArray("secondaryPiece.json", "secondaryPiece");
+  }
+
+  private String rollPrimaryAccessory() {
+    int roll = rollD20();
+    if (roll >= 19) {
+      return rollSecondaryAccessory();
+    }
+    if (roll >= 17) {
+      String pattern = rollPattern();
+      String material = rollMaterialColor();
+      return "{1} body is adorned with " + material + " jewelry, showing " + pattern + "s in various shapes and stances.";
+    }
+    if (roll >= 15) {
+      String pattern = rollPattern();
+      String color = rollPrismaticColor();
+      return "Much of {1} body is covered with an intricate " + color + " " + pattern + " tattoo.";
+    }
+    if (roll >= 13) {
+      String pattern = rollPattern();
+      String color = rollAnyColor();
+      return "On second look, you notice subtle " + color + " " + pattern + "s crafted into {1} dress.";
+    }
+    if (roll >= 12) {
+      String pattern = rollPattern();
+      String color = rollPrismaticColor();
+      return "On top of this, a {2} tabard shows {1} family's mon, a " + color + " " + pattern + ".";
+    }
+    if (roll >= 11) {
+      String pattern = rollPattern();
+      String color = rollPrismaticColor();
+      return "On top of this, a {2} tabard shows a " + color + " " + pattern + ", undoubtedly a symbol of religious significance.";
+    }
+    return pickElementFromJsonArray("primaryAccessory.json", "primaryAccessory");
+  }
+
+  private String rollSecondaryAccessory() {
+    return "";
   }
 
   private String rollHair() {

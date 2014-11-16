@@ -23,6 +23,9 @@ public class Fashion {
     String secondary = MessageFormat.format(secondaryPiece, personal, possessive, highlightColor);
     text.append(capitalize(secondary));
     text.append("\n");
+    String firstAccessory = MessageFormat.format(primaryAccessory, personal, possessive, highlightColor);
+    text.append(capitalize(firstAccessory));
+    text.append("\n");
     String hair = MessageFormat.format(hairStyle, personal, possessive, highlightColor);
     text.append(capitalize(hair));
     return text.toString();
