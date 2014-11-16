@@ -22,6 +22,7 @@ public class GenerateFashion {
 
   public Fashion generate() {
     Fashion fashion = new Fashion();
+    //String text = "%primaryPiece% %secondaryPiece%\n%primaryAccessory% %secondaryAccessory%\n%hairstyles%"; 
     rollWearer(fashion);
     fashion.primaryPiece = rollPrimaryPiece();
     fashion.secondaryPiece = rollSecondaryPiece();
@@ -116,6 +117,12 @@ public class GenerateFashion {
     return pickNameFromJsonArray(patternStyle);
   }
 
+  @SuppressWarnings("UnusedDeclaration")//From Random Tables
+  private String rollPatternAdjective() {
+    String patternStyle = pickElementFromJsonArray("patterns");
+    return pickAttributeFromJsonArray(patternStyle);
+  }
+
   private String rollAnyColor() {
     String colorStyle = pickElementFromJsonArray("colors");
     return pickElementFromJsonArray(colorStyle);
@@ -124,6 +131,7 @@ public class GenerateFashion {
   private String rollPrismaticColor() {
     return pickElementFromJsonArray("prismaticColors");
   }
+
 
   private String rollMaterialColor() {
     return pickElementFromJsonArray("materialColors");
@@ -146,6 +154,10 @@ public class GenerateFashion {
 
   private String pickNameFromJsonArray(String array) {
     return pickFromJsonArray(array, "name");
+  }
+
+  private String pickAttributeFromJsonArray(String array) {
+    return pickFromJsonArray(array, "attribute");
   }
 
   private String pickFromJsonArray(String array, String property) {
