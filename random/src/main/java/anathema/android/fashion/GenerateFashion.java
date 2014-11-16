@@ -106,7 +106,7 @@ public class GenerateFashion {
     }
     if (roll >= 17) {
       String pattern = rollPattern();
-      return "{1} hands bear a number of heavy rings, all fashioned after a " + pattern + "'s form.";
+      return "{1} hands bear a number of heavy rings, all fashioned after a " + pattern + "''s form.";
     }
     if (roll >= 15) {
       String pattern = rollPattern();
