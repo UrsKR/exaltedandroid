@@ -26,6 +26,7 @@ public class Fashion {
     text.append("\n");
     String firstAccessory = MessageFormat.format(primaryAccessory, personal, possessive, highlightColor, primaryColor);
     text.append(capitalize(firstAccessory));
+    text.append(" ");
     String secondAccessory = MessageFormat.format(secondaryAccessory, personal, possessive, highlightColor, primaryColor);
     text.append(capitalize(secondAccessory));
     text.append("\n");

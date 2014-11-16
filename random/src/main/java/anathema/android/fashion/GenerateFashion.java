@@ -114,7 +114,7 @@ public class GenerateFashion {
     }
     if (roll >= 13) {
       String pattern = rollPattern();
-      return "Deep scars cover {1} skin, formed after " + pattern + "s. No doubt {0} acquired them in a series of painful rituals.";
+      return "Deep scars cover {1} skin, formed after " + pattern + "s, no doubt acquired in a series of painful rituals.";
     }
     if (roll >= 11) {
       String pattern = rollPattern();
