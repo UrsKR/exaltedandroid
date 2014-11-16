@@ -15,6 +15,10 @@
     "{0} wrapped {1} body in chain, tight enough to count as clothing.",
     "{0} is covered covered by plates, hiding {1} very humanity.",
     "{0} is decked out in bones and symbols of death.",
-    "{0} is wrapped in vines and foliage."
+    "{0} is wrapped in vines and foliage.",
+    "{0} presents a uniform with a {2} %rollPattern% on its high collar.",
+    "{0} presents a uniform with a {2} %rollPattern% on its high collar.",
+    "%rollSecondaryPiece%",
+    "%rollSecondaryPiece%"
   ]
 }

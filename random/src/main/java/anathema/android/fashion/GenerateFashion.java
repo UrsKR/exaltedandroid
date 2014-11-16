@@ -7,6 +7,10 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.lang.reflect.InvocationTargetException;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class GenerateFashion {
   private DiceAndCoins diceAndCoins;
   private FileToString fileToString;
@@ -18,7 +22,6 @@ public class GenerateFashion {
 
   public Fashion generate() {
     Fashion fashion = new Fashion();
-    //String text = "%primaryPiece% %secondaryPiece%\n%primaryAccessory% %secondaryAccessory%\n%hairstyles%"; 
     rollWearer(fashion);
     fashion.primaryPiece = rollPrimaryPiece();
     fashion.secondaryPiece = rollSecondaryPiece();
@@ -42,27 +45,28 @@ public class GenerateFashion {
   }
 
   private String rollPrimaryPiece() {
-    int roll = rollD20();
-    if (roll >= 19) {
-      return rollSecondaryPiece();
-    }
-    if (roll >= 17) {
-      String unitSymbol = rollPattern();
-      return "{0} presents a uniform with a {2} " + unitSymbol + " on its high collar.";
-    }
-    return pickElementFromJsonArray("primaryPiece");
+    String primaryPiece = pickElementFromJsonArray("primaryPiece");
+    return resolvePlaceHolders(primaryPiece);
   }
 
   private String rollSecondaryPiece() {
-    int roll = rollD20();
-    if (roll >= 19) {
-      return rollPrimaryPiece();
+    String secondaryPiece = pickElementFromJsonArray("secondaryPiece");
+    return resolvePlaceHolders(secondaryPiece);
+  }
+
+  private String resolvePlaceHolders(String primaryPiece) {
+    Pattern pattern = Pattern.compile(".*?%(.+)%.*?");
+    Matcher matcher = pattern.matcher(primaryPiece);
+    if (!matcher.matches()) {
+      return primaryPiece;
     }
-    if (roll >= 17) {
-      String pattern = rollPatternAdjective();
-      return pattern + " symbols give {1} appearance a spiritual air.";
+    try {
+      String group = matcher.group(1);
+      String element = (String) GenerateFashion.class.getDeclaredMethod(group).invoke(this);
+      return primaryPiece.replaceAll("%.+%", element);
+    } catch (IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {
+      throw new RuntimeException(e);
     }
-    return pickElementFromJsonArray("secondaryPiece");
   }
 
   private String rollPrimaryAccessory() {
@@ -99,27 +103,8 @@ public class GenerateFashion {
   }
 
   private String rollSecondaryAccessory() {
-    int roll = rollD20();
-    if (roll >= 19) {
-      return rollPrimaryAccessory();
-    }
-    if (roll >= 17) {
-      String pattern = rollPattern();
-      return "{1} hands bear a number of heavy rings, all fashioned after a " + pattern + "''s form.";
-    }
-    if (roll >= 15) {
-      String pattern = rollPattern();
-      return "{0} hides {1} face behind a " + pattern + " mask.";
-    }
-    if (roll >= 13) {
-      String pattern = rollPattern();
-      return "Deep scars cover {1} skin, formed after " + pattern + "s, no doubt acquired in a series of painful rituals.";
-    }
-    if (roll >= 11) {
-      String pattern = rollPattern();
-      return "{1} belt is home to a beautiful brush, the handle finely carved to represent a " + pattern + ".";
-    }
-    return pickElementFromJsonArray("secondaryAccessory");
+    String secondaryAccessory = pickElementFromJsonArray("secondaryAccessory");
+    return resolvePlaceHolders(secondaryAccessory);
   }
 
   private String rollHair() {
@@ -131,11 +116,6 @@ public class GenerateFashion {
     return pickNameFromJsonArray(patternStyle);
   }
 
-  private String rollPatternAdjective() {
-    String patternStyle = pickElementFromJsonArray("patterns");
-    return pickAttributeFromJsonArray(patternStyle);
-  }
-
   private String rollAnyColor() {
     String colorStyle = pickElementFromJsonArray("colors");
     return pickElementFromJsonArray(colorStyle);
@@ -144,7 +124,6 @@ public class GenerateFashion {
   private String rollPrismaticColor() {
     return pickElementFromJsonArray("prismaticColors");
   }
-
 
   private String rollMaterialColor() {
     return pickElementFromJsonArray("materialColors");
@@ -166,11 +145,11 @@ public class GenerateFashion {
   }
 
   private String pickNameFromJsonArray(String array) {
-    return pickPropertyFromJsonArray(array + ".json", array, "name");
+    return pickFromJsonArray(array, "name");
   }
 
-  private String pickAttributeFromJsonArray(String array) {
-    return pickPropertyFromJsonArray(array + ".json", array, "attribute");
+  private String pickFromJsonArray(String array, String property) {
+    return pickPropertyFromJsonArray(array + ".json", array, property);
   }
 
   private String pickPropertyFromJsonArray(String filename, String array, String property) {

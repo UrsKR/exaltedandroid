@@ -9,6 +9,16 @@
     "Jewelers'' glasses sit on {1} head, and there is little doubt {0} knows how to use them.",
     "{1} functional spectacles gleam in the light. What knowledge has {0} learned through them?",
     "Bells of various sizes are attached to {1} garments, accompanying even the tiniest of movements with a harmonious ring.",
-    "Polished mirrors hang from {1} dress, glittering like a midday lake."
+    "Polished mirrors hang from {1} dress, glittering like a midday lake.",
+    "{1} belt is home to a beautiful brush, the handle finely carved to represent a %rollPattern%.",
+    "{1} belt is home to a beautiful brush, the handle finely carved to represent a %rollPattern%.",
+    "Deep scars cover {1} skin, formed after %rollPattern%s, no doubt acquired in a series of painful rituals.",
+    "Deep scars cover {1} skin, formed after %rollPattern%s, no doubt acquired in a series of painful rituals.",
+    "{0} hides {1} face behind a %rollPattern% mask.",
+    "{0} hides {1} face behind a %rollPattern% mask.",
+    "{1} hands bear a number of heavy rings, all fashioned after a %rollPattern%''s form.",
+    "{1} hands bear a number of heavy rings, all fashioned after a %rollPattern%''s form.",
+    "%rollPrimaryAccessory%",
+    "%rollPrimaryAccessory%"
   ]
  }
