@@ -9,53 +9,56 @@
                 tools:context=".MainActivity" android:id="@+id/exaltedrandom">
 
 
-    <TableLayout
+    <LinearLayout
+            android:orientation="vertical"
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content" android:id="@+id/tableLayout">
-        <TableRow
+            android:layout_height="wrap_content" android:id="@+id/linearLayout">
+        <LinearLayout
+                android:orientation="horizontal"
                 android:layout_width="fill_parent"
-                android:layout_height="fill_parent">
+                android:layout_height="wrap_content">
             <Button
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:text="@string/button.name"
-                    android:id="@+id/button_name" android:layout_alignParentTop="true"
-                    android:layout_alignParentStart="true" android:enabled="false"/>
+                    android:id="@+id/button_name"
+                    android:enabled="false" android:layout_weight="1"/>
             <Button
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:text="@string/button.fashion"
                     android:id="@+id/button_fashion"
-                    android:onClick="generateFashion"/>
+                    android:onClick="generateFashion" android:layout_weight="1"/>
             <Button
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:text="@string/button.lifepath"
-                    android:id="@+id/button_lifepath" android:enabled="false"/>
-        </TableRow>
-        <TableRow
+                    android:id="@+id/button_lifepath" android:enabled="false" android:layout_weight="1"/>
+        </LinearLayout>
+        <LinearLayout
+                android:orientation="horizontal"
                 android:layout_width="fill_parent"
-                android:layout_height="fill_parent">
+                android:layout_height="wrap_content">
             <Button
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:text="@string/button.village"
-                    android:id="@+id/button_village" android:enabled="false"/>
+                    android:id="@+id/button_village" android:enabled="false" android:layout_weight="1"/>
             <Button
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:text="@string/button.manse"
                     android:id="@+id/button_manse"
-                    android:onClick="generateManse"/>
+                    android:onClick="generateManse" android:layout_weight="1"/>
             <Button
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:text="@string/button.vision"
-                    android:id="@+id/button_vision" android:enabled="false"/>
-        </TableRow>
-    </TableLayout>
+                    android:id="@+id/button_vision" android:enabled="false" android:layout_weight="1"/>
+        </LinearLayout>
+    </LinearLayout>
     <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
                  android:id="@+id/fragment_container"
                  android:layout_width="match_parent"
-                 android:layout_height="match_parent" android:layout_below="@+id/tableLayout"/>
+                 android:layout_height="match_parent" android:layout_below="@+id/linearLayout"/>
 </RelativeLayout>
