@@ -7,8 +7,6 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import static anathema.android.Flip.Tails;
-
 public class GenerateFashion {
   private DiceAndCoins diceAndCoins;
   private FileToString fileToString;
@@ -20,11 +18,12 @@ public class GenerateFashion {
 
   public Fashion generate() {
     Fashion fashion = new Fashion();
+    //String text = "%primaryPiece% %secondaryPiece%\n%primaryAccessory% %secondaryAccessory%\n%hairstyles%"; 
     rollWearer(fashion);
     fashion.primaryPiece = rollPrimaryPiece();
     fashion.secondaryPiece = rollSecondaryPiece();
     fashion.primaryAccessory = rollPrimaryAccessory();
-    fashion.secondaryAccessory =  rollSecondaryAccessory();
+    fashion.secondaryAccessory = rollSecondaryAccessory();
     fashion.hairStyle = rollHair();
     fashion.primaryColor = rollAnyColor();
     fashion.highlightColor = rollAnyColor();
@@ -32,7 +31,7 @@ public class GenerateFashion {
   }
 
   private void rollWearer(Fashion fashion) {
-    Flip flip = flipCoin();
+    Flip flip = diceAndCoins.flipACoin();
     if (flip == Flip.Head) {
       fashion.personal = "he";
       fashion.possessive = "his";
@@ -51,7 +50,7 @@ public class GenerateFashion {
       String unitSymbol = rollPattern();
       return "{0} presents a uniform with a {2} " + unitSymbol + " on its high collar.";
     }
-    return pickElementFromJsonArray("primaryPiece.json", "primaryPiece");
+    return pickElementFromJsonArray("primaryPiece");
   }
 
   private String rollSecondaryPiece() {
@@ -63,7 +62,7 @@ public class GenerateFashion {
       String pattern = rollPatternAdjective();
       return pattern + " symbols give {1} appearance a spiritual air.";
     }
-    return pickElementFromJsonArray("secondaryPiece.json", "secondaryPiece");
+    return pickElementFromJsonArray("secondaryPiece");
   }
 
   private String rollPrimaryAccessory() {
@@ -96,7 +95,7 @@ public class GenerateFashion {
       String color = rollPrismaticColor();
       return "On top of this, a {2} tabard shows a " + color + " " + pattern + ", undoubtedly a symbol of religious significance.";
     }
-    return pickElementFromJsonArray("primaryAccessory.json", "primaryAccessory");
+    return pickElementFromJsonArray("primaryAccessory");
   }
 
   private String rollSecondaryAccessory() {
@@ -120,72 +119,43 @@ public class GenerateFashion {
       String pattern = rollPattern();
       return "{1} belt is home to a beautiful brush, the handle finely carved to represent a " + pattern + ".";
     }
-    return pickElementFromJsonArray("secondaryAccessory.json", "secondaryAccessory");
+    return pickElementFromJsonArray("secondaryAccessory");
   }
 
   private String rollHair() {
-    return pickElementFromJsonArray("hairstyles.json", "hairstyles");
+    return pickElementFromJsonArray("hairstyles");
   }
 
   private String rollPattern() {
-    int roll = rollD10();
-    if (roll <= 5) {
-      return pickNameFromJsonArray("creatures.json", "creatures");
-    }
-    if (roll <= 8) {
-      return pickNameFromJsonArray("astrology.json", "astrology");
-    }
-    if (roll == 9) {
-      return pickNameFromJsonArray("geometry.json", "geometry");
-    }
-    return pickNameFromJsonArray("nature.json", "nature");
+    String patternStyle = pickElementFromJsonArray("patterns");
+    return pickNameFromJsonArray(patternStyle);
   }
 
   private String rollPatternAdjective() {
-    int roll = rollD10();
-    if (roll <= 5) {
-      return pickAttributeFromJsonArray("creatures.json", "creatures");
-    }
-    if (roll <= 8) {
-      return pickAttributeFromJsonArray("astrology.json", "astrology");
-    }
-    if (roll == 9) {
-      return pickAttributeFromJsonArray("geometry.json", "geometry");
-    }
-    return pickAttributeFromJsonArray("nature.json", "nature");
+    String patternStyle = pickElementFromJsonArray("patterns");
+    return pickAttributeFromJsonArray(patternStyle);
   }
 
   private String rollAnyColor() {
-    Flip flipCoin = flipCoin();
-    if (flipCoin == Tails) {
-      return rollPrismaticColor();
-    }
-    return rollMaterialColor();
+    String colorStyle = pickElementFromJsonArray("colors");
+    return pickElementFromJsonArray(colorStyle);
   }
 
   private String rollPrismaticColor() {
-    return pickElementFromJsonArray("prismaticColors.json", "colors");
+    return pickElementFromJsonArray("prismaticColors");
   }
 
 
   private String rollMaterialColor() {
-    return pickElementFromJsonArray("materialColors.json", "colors");
-  }
-
-  private Flip flipCoin() {
-    return diceAndCoins.flipACoin();
-  }
-
-  private int rollD10() {
-    return diceAndCoins.rollTenSidedDie();
+    return pickElementFromJsonArray("materialColors");
   }
 
   private int rollD20() {
     return diceAndCoins.rollTwentySidedDie();
   }
 
-  private String pickElementFromJsonArray(String filename, String array) {
-    String content = fileToString.loadFile(filename);
+  private String pickElementFromJsonArray(String array) {
+    String content = fileToString.loadFile(array + ".json");
     try {
       JSONArray entries = new JSONObject(content).getJSONArray(array);
       int roll = diceAndCoins.rollWithSides(entries.length());
@@ -195,12 +165,12 @@ public class GenerateFashion {
     }
   }
 
-  private String pickNameFromJsonArray(String filename, String array) {
-    return pickPropertyFromJsonArray(filename, array, "name");
+  private String pickNameFromJsonArray(String array) {
+    return pickPropertyFromJsonArray(array + ".json", array, "name");
   }
 
-  private String pickAttributeFromJsonArray(String filename, String array) {
-    return pickPropertyFromJsonArray(filename, array, "attribute");
+  private String pickAttributeFromJsonArray(String array) {
+    return pickPropertyFromJsonArray(array + ".json", array, "attribute");
   }
 
   private String pickPropertyFromJsonArray(String filename, String array, String property) {
