@@ -3,13 +3,11 @@ package anathema.android.manse;
 import anathema.android.DiceAndCoins;
 import anathema.android.R;
 import android.app.Fragment;
-import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 //http://lovethelabyrinth.blogspot.de/2014/11/this-old-manse.html
 public class ManseFragment extends Fragment {
@@ -36,9 +34,6 @@ public class ManseFragment extends Fragment {
 
   public void generateManse(DiceAndCoins diceAndCoins) {
     ManseSpecialty specialty = new GenerateManse(diceAndCoins).generate();
-    Context context = getActivity().getApplicationContext();
-    Toast toast = Toast.makeText(context, context.getString(R.string.toast_dieroll)+ specialty.getRoll(), Toast.LENGTH_SHORT);
-    toast.show();
     nameView.setText(specialty.getCaption());
     resultView.setText(specialty.getDetails());
     riskView.setText(specialty.getRisk());
