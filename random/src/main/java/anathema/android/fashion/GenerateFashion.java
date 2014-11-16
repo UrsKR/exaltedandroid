@@ -67,7 +67,7 @@ public class GenerateFashion {
   }
 
   private String rollHair() {
-    return pickNameFromJsonArray("hairstyles.json", "hairstyles");
+    return pickElementFromJsonArray("hairstyles.json", "hairstyles");
   }
 
   private String rollPattern() {
