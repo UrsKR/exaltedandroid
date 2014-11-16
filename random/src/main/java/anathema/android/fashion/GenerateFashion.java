@@ -22,7 +22,6 @@ public class GenerateFashion {
 
   public Fashion generate() {
     Fashion fashion = new Fashion();
-    //String text = "%primaryPiece% %secondaryPiece%\n%primaryAccessory% %secondaryAccessory%\n%hairstyles%"; 
     rollWearer(fashion);
     fashion.primaryPiece = rollPrimaryPiece();
     fashion.secondaryPiece = rollSecondaryPiece();
@@ -72,36 +71,8 @@ public class GenerateFashion {
   }
 
   private String rollPrimaryAccessory() {
-    int roll = rollD20();
-    if (roll >= 19) {
-      return rollSecondaryAccessory();
-    }
-    if (roll >= 17) {
-      String pattern = rollPattern();
-      String material = rollMaterialColor();
-      return "{1} body is adorned with " + material + " jewelry, showing " + pattern + "s in various shapes and stances.";
-    }
-    if (roll >= 15) {
-      String pattern = rollPattern();
-      String color = rollPrismaticColor();
-      return "Much of {1} body is covered with an intricate " + color + " " + pattern + " tattoo.";
-    }
-    if (roll >= 13) {
-      String pattern = rollPattern();
-      String color = rollAnyColor();
-      return "On second look, you notice subtle " + color + " " + pattern + "s crafted into {1} dress.";
-    }
-    if (roll >= 12) {
-      String pattern = rollPattern();
-      String color = rollPrismaticColor();
-      return "On top of this, a {2} tabard shows {1} family's mon, a " + color + " " + pattern + ".";
-    }
-    if (roll >= 11) {
-      String pattern = rollPattern();
-      String color = rollPrismaticColor();
-      return "On top of this, a {2} tabard shows a " + color + " " + pattern + ", undoubtedly a symbol of religious significance.";
-    }
-    return pickElementFromJsonArray("primaryAccessory");
+    String primaryAccessory = pickElementFromJsonArray("primaryAccessory");
+    return resolvePlaceHolders(primaryAccessory);
   }
 
   private String rollSecondaryAccessory() {
@@ -113,6 +84,12 @@ public class GenerateFashion {
     return pickElementFromJsonArray("hairstyles");
   }
 
+  private String rollAnyColor() {
+    String colorStyle = pickElementFromJsonArray("colors");
+    return pickElementFromJsonArray(colorStyle);
+  }
+
+  @SuppressWarnings("UnusedDeclaration")
   private String rollPattern() {
     String patternStyle = pickElementFromJsonArray("patterns");
     return pickNameFromJsonArray(patternStyle);
@@ -124,21 +101,14 @@ public class GenerateFashion {
     return pickAttributeFromJsonArray(patternStyle);
   }
 
-  private String rollAnyColor() {
-    String colorStyle = pickElementFromJsonArray("colors");
-    return pickElementFromJsonArray(colorStyle);
-  }
-
+  @SuppressWarnings("UnusedDeclaration")
   private String rollPrismaticColor() {
     return pickElementFromJsonArray("prismaticColors");
   }
 
+  @SuppressWarnings("UnusedDeclaration")
   private String rollMaterialColor() {
     return pickElementFromJsonArray("materialColors");
-  }
-
-  private int rollD20() {
-    return diceAndCoins.rollTwentySidedDie();
   }
 
   private String pickElementFromJsonArray(String array) {

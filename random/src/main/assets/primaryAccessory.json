@@ -9,6 +9,16 @@
     "You cannot help but stare at {1} {2} sandals.",
     "You cannot help but stare at {1} {2} boots.",
     "Multiple {2} metallic piercings complement the image.",
-    "Numerous piercings of bone colored as {2} tell of success in battle or on the hunt."
+    "Numerous piercings of bone colored as {2} tell of success in battle or on the hunt.",
+    "On top of this, a {2} tabard shows a %rollPrismaticColor% %rollPattern%, undoubtedly a symbol of religious significance.",
+    "On top of this, a {2} tabard shows {1} family's mon, a %rollPrismaticColor% %rollPattern%.",
+    "On second look, you notice subtle %rollAnyColor% %rollPattern%s crafted into {1} dress.",
+    "On second look, you notice subtle %rollAnyColor% %rollPattern%s crafted into {1} dress.",
+    "Much of {1} body is covered with an intricate %rollPrismaticColor% %rollPattern% tattoo.",
+    "Much of {1} body is covered with an intricate %rollPrismaticColor% %rollPattern% tattoo.",
+    "{1} body is adorned with %rollMaterialColor% jewelry, showing %rollPattern%s in various shapes and stances.",
+    "{1} body is adorned with %rollMaterialColor% jewelry, showing %rollPattern%s in various shapes and stances.",
+    "%rollSecondaryAccessory%",
+    "%rollSecondaryAccessory%"
   ]
 }
