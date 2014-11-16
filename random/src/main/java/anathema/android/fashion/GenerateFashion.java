@@ -56,18 +56,19 @@ public class GenerateFashion {
   }
 
   private String resolvePlaceHolders(String primaryPiece) {
-    Pattern pattern = Pattern.compile(".*?%(.+)%.*?");
+    Pattern pattern = Pattern.compile("%(.+?)%");
     Matcher matcher = pattern.matcher(primaryPiece);
-    if (!matcher.matches()) {
-      return primaryPiece;
+    String resolvedPiece = primaryPiece;
+    while (matcher.find()) {
+      try {
+        String group = matcher.group(1);
+        String element = (String) GenerateFashion.class.getDeclaredMethod(group).invoke(this);
+        resolvedPiece = resolvedPiece.replaceAll("%" + group + "%", element);
+      } catch (IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {
+        throw new RuntimeException(e);
+      }
     }
-    try {
-      String group = matcher.group(1);
-      String element = (String) GenerateFashion.class.getDeclaredMethod(group).invoke(this);
-      return primaryPiece.replaceAll("%.+%", element);
-    } catch (IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {
-      throw new RuntimeException(e);
-    }
+    return resolvedPiece;
   }
 
   private String rollPrimaryAccessory() {
@@ -131,7 +132,6 @@ public class GenerateFashion {
   private String rollPrismaticColor() {
     return pickElementFromJsonArray("prismaticColors");
   }
-
 
   private String rollMaterialColor() {
     return pickElementFromJsonArray("materialColors");
