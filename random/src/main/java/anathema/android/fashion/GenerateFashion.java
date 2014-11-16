@@ -46,18 +46,18 @@ public class GenerateFashion {
 
   private String rollPrimaryPiece() {
     String primaryPiece = pickElementFromJsonArray("primaryPiece");
-    return resolvePlaceHolders(primaryPiece);
+    return resolvePlaceholders(primaryPiece);
   }
 
   private String rollSecondaryPiece() {
     String secondaryPiece = pickElementFromJsonArray("secondaryPiece");
-    return resolvePlaceHolders(secondaryPiece);
+    return resolvePlaceholders(secondaryPiece);
   }
 
-  private String resolvePlaceHolders(String primaryPiece) {
+  private String resolvePlaceholders(String textWithPlaceholders) {
     Pattern pattern = Pattern.compile("%(.+?)%");
-    Matcher matcher = pattern.matcher(primaryPiece);
-    String resolvedPiece = primaryPiece;
+    Matcher matcher = pattern.matcher(textWithPlaceholders);
+    String resolvedPiece = textWithPlaceholders;
     while (matcher.find()) {
       try {
         String group = matcher.group(1);
@@ -72,12 +72,12 @@ public class GenerateFashion {
 
   private String rollPrimaryAccessory() {
     String primaryAccessory = pickElementFromJsonArray("primaryAccessory");
-    return resolvePlaceHolders(primaryAccessory);
+    return resolvePlaceholders(primaryAccessory);
   }
 
   private String rollSecondaryAccessory() {
     String secondaryAccessory = pickElementFromJsonArray("secondaryAccessory");
-    return resolvePlaceHolders(secondaryAccessory);
+    return resolvePlaceholders(secondaryAccessory);
   }
 
   private String rollHair() {
