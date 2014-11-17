@@ -20,8 +20,8 @@ android {
         applicationId "anathema.android"
         minSdkVersion 16
         targetSdkVersion 21
-        versionCode 6
-        versionName "4"
+        versionCode 7
+        versionName "5"
     }
 
     compileOptions {
