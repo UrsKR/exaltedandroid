@@ -3,21 +3,19 @@ package anathema.android.fashion;
 import anathema.android.DiceAndCoins;
 import anathema.android.Flip;
 import anathema.android.util.FileToString;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import anathema.android.util.JsonRandomizer;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class GenerateFashion {
+  private final JsonRandomizer randomizer;
   private DiceAndCoins diceAndCoins;
-  private FileToString fileToString;
 
   public GenerateFashion(DiceAndCoins diceAndCoins, FileToString fileToString) {
     this.diceAndCoins = diceAndCoins;
-    this.fileToString = fileToString;
+    this.randomizer = new JsonRandomizer(diceAndCoins, fileToString);
   }
 
   public Fashion generate() {
@@ -45,12 +43,12 @@ public class GenerateFashion {
   }
 
   private String rollPrimaryPiece() {
-    String primaryPiece = pickElementFromJsonArray("primaryPiece");
+    String primaryPiece = randomizer.pickElementFromJsonArray("primaryPiece");
     return resolvePlaceholders(primaryPiece);
   }
 
   private String rollSecondaryPiece() {
-    String secondaryPiece = pickElementFromJsonArray("secondaryPiece");
+    String secondaryPiece = randomizer.pickElementFromJsonArray("secondaryPiece");
     return resolvePlaceholders(secondaryPiece);
   }
 
@@ -71,77 +69,43 @@ public class GenerateFashion {
   }
 
   private String rollPrimaryAccessory() {
-    String primaryAccessory = pickElementFromJsonArray("primaryAccessory");
+    String primaryAccessory = randomizer.pickElementFromJsonArray("primaryAccessory");
     return resolvePlaceholders(primaryAccessory);
   }
 
   private String rollSecondaryAccessory() {
-    String secondaryAccessory = pickElementFromJsonArray("secondaryAccessory");
+    String secondaryAccessory = randomizer.pickElementFromJsonArray("secondaryAccessory");
     return resolvePlaceholders(secondaryAccessory);
   }
 
   private String rollHair() {
-    return pickElementFromJsonArray("hairstyles");
+    return randomizer.pickElementFromJsonArray("hairstyles");
   }
 
   private String rollAnyColor() {
-    String colorStyle = pickElementFromJsonArray("colors");
-    return pickElementFromJsonArray(colorStyle);
+    String colorStyle = randomizer.pickElementFromJsonArray("colors");
+    return randomizer.pickElementFromJsonArray(colorStyle);
   }
 
   @SuppressWarnings("UnusedDeclaration")
   private String rollPattern() {
-    String patternStyle = pickElementFromJsonArray("patterns");
-    return pickNameFromJsonArray(patternStyle);
+    String patternStyle = randomizer.pickElementFromJsonArray("patterns");
+    return randomizer.pickNameFromJsonArray(patternStyle);
   }
 
   @SuppressWarnings("UnusedDeclaration")//From Random Tables
   private String rollPatternAdjective() {
-    String patternStyle = pickElementFromJsonArray("patterns");
-    return pickAttributeFromJsonArray(patternStyle);
+    String patternStyle = randomizer.pickElementFromJsonArray("patterns");
+    return randomizer.pickAttributeFromJsonArray(patternStyle);
   }
 
   @SuppressWarnings("UnusedDeclaration")
   private String rollPrismaticColor() {
-    return pickElementFromJsonArray("prismaticColors");
+    return randomizer.pickElementFromJsonArray("prismaticColors");
   }
 
   @SuppressWarnings("UnusedDeclaration")
   private String rollMaterialColor() {
-    return pickElementFromJsonArray("materialColors");
-  }
-
-  private String pickElementFromJsonArray(String array) {
-    String content = fileToString.loadFile(array + ".json");
-    try {
-      JSONArray entries = new JSONObject(content).getJSONArray(array);
-      int roll = diceAndCoins.rollWithSides(entries.length());
-      return entries.getString(roll - 1);
-    } catch (JSONException e) {
-      throw new RuntimeException(e);
-    }
-  }
-
-  private String pickNameFromJsonArray(String array) {
-    return pickFromJsonArray(array, "name");
-  }
-
-  private String pickAttributeFromJsonArray(String array) {
-    return pickFromJsonArray(array, "attribute");
-  }
-
-  private String pickFromJsonArray(String array, String property) {
-    return pickPropertyFromJsonArray(array + ".json", array, property);
-  }
-
-  private String pickPropertyFromJsonArray(String filename, String array, String property) {
-    String content = fileToString.loadFile(filename);
-    try {
-      JSONArray entries = new JSONObject(content).getJSONArray(array);
-      int roll = diceAndCoins.rollWithSides(entries.length());
-      return entries.getJSONObject(roll - 1).getString(property);
-    } catch (JSONException e) {
-      throw new RuntimeException(e);
-    }
+    return randomizer.pickElementFromJsonArray("materialColors");
   }
 }
