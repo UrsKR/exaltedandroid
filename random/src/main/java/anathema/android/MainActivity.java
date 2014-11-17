@@ -3,6 +3,7 @@ package anathema.android;
 import anathema.android.fashion.FashionFragment;
 import anathema.android.flashbacks.FlashbackFragment;
 import anathema.android.manse.ManseFragment;
+import anathema.android.village.VillageFragment;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.os.Bundle;
@@ -29,24 +30,25 @@ public class MainActivity extends Activity {
   }
 
   public void generateManse(View view) {
-    ManseFragment manse = new ManseFragment();
-    getFragmentManager().beginTransaction().replace(R.id.fragment_container, manse).commit();
-    getFragmentManager().executePendingTransactions();
-    manse.generateManse(diceAndCoins);
+    showAndGenerate(new ManseFragment());
   }
 
   public void generateFashion(View view) {
-    FashionFragment fashion = new FashionFragment();
-    getFragmentManager().beginTransaction().replace(R.id.fragment_container, fashion).commit();
-    getFragmentManager().executePendingTransactions();
-    fashion.generateFashion(diceAndCoins);
+    showAndGenerate(new FashionFragment());
   }
 
   public void generateFlashback(View view) {
-    FlashbackFragment flashback = new FlashbackFragment();
-    getFragmentManager().beginTransaction().replace(R.id.fragment_container, flashback).commit();
+    showAndGenerate(new FlashbackFragment());
+  }
+
+  public void generateVillage(View view) {
+    showAndGenerate(new VillageFragment());
+  }
+
+  private void showAndGenerate(GeneratorFragment generatorFragment) {
+    getFragmentManager().beginTransaction().replace(R.id.fragment_container, generatorFragment).commit();
     getFragmentManager().executePendingTransactions();
-    flashback.generateFlashback(diceAndCoins);
+    generatorFragment.generate(diceAndCoins);
   }
 
   @Override

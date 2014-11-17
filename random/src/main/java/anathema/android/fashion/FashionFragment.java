@@ -2,18 +2,17 @@ package anathema.android.fashion;
 
 
 import anathema.android.DiceAndCoins;
+import anathema.android.GeneratorFragment;
+import anathema.android.R;
 import anathema.android.util.FileToString;
 import android.os.Bundle;
-import android.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
-import anathema.android.R;
 import android.widget.TextView;
 
 //http://lovethelabyrinth.blogspot.de/2014/11/random-exalted-fashion.html
-public class FashionFragment extends Fragment {
+public class FashionFragment extends GeneratorFragment {
 
   private TextView fashionView;
 
@@ -30,7 +29,7 @@ public class FashionFragment extends Fragment {
     return view;
   }
 
-  public void generateFashion(DiceAndCoins diceAndCoins) {
+  public void generate(DiceAndCoins diceAndCoins) {
     Fashion fashion = new GenerateFashion(diceAndCoins, new FileToString(getActivity().getAssets())).generate();
     fashionView.setText(fashion.asText());
   }

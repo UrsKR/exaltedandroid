@@ -43,7 +43,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:text="@string/button.village"
-                    android:id="@+id/button_village" android:enabled="false" android:layout_weight="1"/>
+                    android:id="@+id/button_village" android:layout_weight="1" android:onClick="generateVillage"/>
             <Button
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"

@@ -1,0 +1,24 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="anathema.android.village.VillageFragment">
+
+    <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:id="@+id/text_villagetitle" android:layout_gravity="center_horizontal|top"
+                android:layout_alignParentTop="true" android:layout_centerHorizontal="true"
+                android:layout_marginTop="20dp" android:layout_marginBottom="20dp" android:text="Village"/>
+        <TextView
+                android:layout_width="match_parent"
+                android:layout_height="370dp"
+                android:id="@+id/text_village" android:layout_gravity="center"
+                android:layout_below="@+id/text_villagetitle" android:layout_alignParentStart="true"
+                android:layout_alignParentBottom="true"/>
+    </RelativeLayout>
+</FrameLayout>

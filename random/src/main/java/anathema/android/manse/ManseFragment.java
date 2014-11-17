@@ -1,8 +1,8 @@
 package anathema.android.manse;
 
 import anathema.android.DiceAndCoins;
+import anathema.android.GeneratorFragment;
 import anathema.android.R;
-import android.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 //http://lovethelabyrinth.blogspot.de/2014/11/this-old-manse.html
-public class ManseFragment extends Fragment {
+public class ManseFragment extends GeneratorFragment {
 
   private TextView nameView;
   private TextView resultView;
@@ -32,7 +32,7 @@ public class ManseFragment extends Fragment {
     return view;
   }
 
-  public void generateManse(DiceAndCoins diceAndCoins) {
+  public void generate(DiceAndCoins diceAndCoins) {
     ManseSpecialty specialty = new GenerateManse(diceAndCoins).generate();
     nameView.setText(specialty.getCaption());
     resultView.setText(specialty.getDetails());

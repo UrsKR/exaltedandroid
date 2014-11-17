@@ -1,4 +1,5 @@
-package anathema.android.flashbacks;
+package anathema.android.village;
+
 
 import anathema.android.DiceAndCoins;
 import anathema.android.GeneratorFragment;
@@ -10,26 +11,25 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-//http://lovethelabyrinth.blogspot.de/2014/11/the-random-1st-age-flashback-generator.html
-public class FlashbackFragment extends GeneratorFragment {
+//http://lovethelabyrinth.blogspot.de/2014/10/exalted-3e-what-is-wrong-with-this.html
+public class VillageFragment extends GeneratorFragment {
 
-  private TextView flashbackView;
+  private TextView villageView;
 
-  public FlashbackFragment() {
+  public VillageFragment() {
     // Required empty public constructor
   }
-
 
   @Override
   public View onCreateView(LayoutInflater inflater, ViewGroup container,
                            Bundle savedInstanceState) {
-    View view = inflater.inflate(R.layout.fragment_flashback, container, false);
-    flashbackView = (TextView) view.findViewById(R.id.text_flashback);
+    View view = inflater.inflate(R.layout.fragment_village, container, false);
+    villageView = (TextView) view.findViewById(R.id.text_village);
     return view;
   }
 
   public void generate(DiceAndCoins diceAndCoins) {
-    String flashback = new GenerateFlashback(diceAndCoins, new FileToString(getActivity().getAssets())).generate();
-    flashbackView.setText(flashback);
+    String village = new GenerateVillage(diceAndCoins, new FileToString(getActivity().getAssets())).generate();
+    villageView.setText(village);
   }
 }
