@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+//http://lovethelabyrinth.blogspot.de/2014/11/the-random-1st-age-flashback-generator.html
 public class FlashbackFragment extends Fragment {
 
   private TextView flashbackView;
