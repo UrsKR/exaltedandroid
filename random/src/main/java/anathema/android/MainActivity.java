@@ -1,6 +1,7 @@
 package anathema.android;
 
 import anathema.android.fashion.FashionFragment;
+import anathema.android.flashbacks.FlashbackFragment;
 import anathema.android.manse.ManseFragment;
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -23,7 +24,7 @@ public class MainActivity extends Activity {
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
-    EmptyFragment empty= new EmptyFragment();
+    EmptyFragment empty = new EmptyFragment();
     getFragmentManager().beginTransaction().add(R.id.fragment_container, empty).commit();
   }
 
@@ -39,6 +40,13 @@ public class MainActivity extends Activity {
     getFragmentManager().beginTransaction().replace(R.id.fragment_container, fashion).commit();
     getFragmentManager().executePendingTransactions();
     fashion.generateFashion(diceAndCoins);
+  }
+
+  public void generateFlashback(View view) {
+    FlashbackFragment flashback = new FlashbackFragment();
+    getFragmentManager().beginTransaction().replace(R.id.fragment_container, flashback).commit();
+    getFragmentManager().executePendingTransactions();
+    flashback.generateFlashback(diceAndCoins);
   }
 
   @Override

@@ -54,7 +54,8 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:text="@string/button.vision"
-                    android:id="@+id/button_vision" android:enabled="false" android:layout_weight="1"/>
+                    android:id="@+id/button_vision" 
+                    android:onClick="generateFlashback" android:layout_weight="1"/>
         </LinearLayout>
     </LinearLayout>
     <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"

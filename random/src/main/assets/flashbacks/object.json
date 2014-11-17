@@ -1,0 +1,14 @@
+{
+  "object": [
+    "Training",
+    "Battle",
+    "Religious",
+    "Purification",
+    "Discovery",
+    "Destruction",
+    "Investigation",
+    "Spying",
+    "Exploration",
+    "Negotiation"
+  ]
+}
