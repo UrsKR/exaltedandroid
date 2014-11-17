@@ -1,4 +1,4 @@
-v4: Works on Android 4.1.
+v4: Flashbacks. Works on Android 4.1.
 v3: Fashion, fully implemented. Improved layout. Works on Android 4.3.1.
 v2: First draft of Fashion
 v1: Manse specialties. Works on Android 4.4
