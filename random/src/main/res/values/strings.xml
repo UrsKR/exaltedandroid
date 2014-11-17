@@ -17,5 +17,7 @@
     <string name="credits_title">Credits</string>
     <string name="toast_dieroll">Rolled\u0020</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="label_reward">Reward</string>
+    <string name="label_risk">Risk</string>
 
 </resources>

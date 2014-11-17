@@ -17,14 +17,14 @@
         <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Risk"
+                android:text="@string/label_risk"
                 android:id="@+id/label_risk" android:layout_below="@+id/text_name"
                 android:layout_marginBottom="60dp"
                 android:layout_alignRight="@+id/label_reward" android:layout_alignStart="@id/label_reward"/>
         <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Reward"
+                android:text="@string/label_reward"
                 android:id="@+id/label_reward" android:layout_below="@+id/label_risk"
                 android:layout_toStartOf="@+id/button_manse" android:layout_marginBottom="60dp"
                 android:layout_marginRight="10dp"/>
