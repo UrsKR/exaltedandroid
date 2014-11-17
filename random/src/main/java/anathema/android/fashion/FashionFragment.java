@@ -16,7 +16,6 @@ import android.widget.TextView;
 public class FashionFragment extends Fragment {
 
   private TextView fashionView;
-  private TextView fashionTitleView;
 
   public FashionFragment() {
     // Required empty public constructor
@@ -28,13 +27,11 @@ public class FashionFragment extends Fragment {
                            Bundle savedInstanceState) {
     View view = inflater.inflate(R.layout.fragment_fashion, container, false);
     fashionView = (TextView) view.findViewById(R.id.text_fashion);
-    fashionTitleView = (TextView) view.findViewById(R.id.text_fashiontitle);
     return view;
   }
 
   public void generateFashion(DiceAndCoins diceAndCoins) {
     Fashion fashion = new GenerateFashion(diceAndCoins, new FileToString(getActivity().getAssets())).generate();
-    fashionTitleView.setText("Fashion");
     fashionView.setText(fashion.asText());
   }
 }
