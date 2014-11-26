@@ -104,7 +104,7 @@ public class GenerateLifepath {
         addTrait("Sorcery");
         return "awakening to a deeper understanding of Creation";
       case 10:
-        addTrait("merits to represent you Mortal cover");
+        addTrait("Merits to represent your Mortal cover");
         return "hidden from Creation's eye, remaining secret to everyone";
       default:
         throw new IllegalArgumentException("Die roll out of bounds [1,10].");
