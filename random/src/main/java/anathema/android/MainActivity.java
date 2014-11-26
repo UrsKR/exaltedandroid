@@ -2,6 +2,7 @@ package anathema.android;
 
 import anathema.android.fashion.FashionFragment;
 import anathema.android.flashbacks.FlashbackFragment;
+import anathema.android.lifepath.LifepathFragment;
 import anathema.android.manse.ManseFragment;
 import anathema.android.village.VillageFragment;
 import android.app.Activity;
@@ -43,6 +44,10 @@ public class MainActivity extends Activity {
 
   public void generateVillage(View view) {
     showAndGenerate(new VillageFragment());
+  }
+
+  public void generateLifepath(View view) {
+    showAndGenerate(new LifepathFragment());
   }
 
   private void showAndGenerate(GeneratorFragment generatorFragment) {

@@ -33,7 +33,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:text="@string/button.lifepath"
-                    android:id="@+id/button_lifepath" android:enabled="false" android:layout_weight="1"/>
+                    android:id="@+id/button_lifepath" android:onClick="generateLifepath" android:layout_weight="1"/>
         </LinearLayout>
         <LinearLayout
                 android:orientation="horizontal"
@@ -54,7 +54,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:text="@string/button.vision"
-                    android:id="@+id/button_vision" 
+                    android:id="@+id/button_vision"
                     android:onClick="generateFlashback" android:layout_weight="1"/>
         </LinearLayout>
     </LinearLayout>
