@@ -21,10 +21,22 @@ public class GenerateLifepath {
     this.lifepath = new Lifepath();
     rollOrigin();
     lifepath.lifepath.append("\n");
+    rollAdultCareer();
+    lifepath.lifepath.append("\n");
     rollExaltation();
     lifepath.lifepath.append("\n");
     lifepath.lifepath.append("Now, forge your destiny!");
     return lifepath;
+  }
+
+  private void rollAdultCareer() {
+    String adultCareer = resolver.resolvePlaceholders("When you grew up, you became %rollCareer%.");
+    lifepath.lifepath.append(adultCareer);
+  }
+
+  @SuppressWarnings("UnusedDeclaration") // called via JSON reflection
+  public String rollCareer() {
+    return randomizer.pickElementFromJsonArray("adultCareer");
   }
 
   public void rollOrigin() {
@@ -40,36 +52,43 @@ public class GenerateLifepath {
     lifepath.lifepath.append(exaltation);
   }
 
+  @SuppressWarnings("UnusedDeclaration") // called via JSON reflection
   public String rollExaltationTrigger() {
     String exaltationTrigger = randomizer.pickElementFromJsonArray("exaltationTrigger");
-    String trigger = resolver.resolvePlaceholders(exaltationTrigger);
-    return trigger;
+    return resolver.resolvePlaceholders(exaltationTrigger);
   }
 
+  @SuppressWarnings("UnusedDeclaration") // called via JSON reflection
   public String rollAssassin() {
     return randomizer.pickElementFromJsonArray("assassin");
   }
 
+  @SuppressWarnings("UnusedDeclaration") // called via JSON reflection
   public String rollAngryCreature() {
     return randomizer.pickElementFromJsonArray("angryCreature");
   }
 
+  @SuppressWarnings("UnusedDeclaration") // called via JSON reflection
   public String rollConflict() {
     return randomizer.pickElementFromJsonArray("conflict");
   }
 
+  @SuppressWarnings("UnusedDeclaration") // called via JSON reflection
   public String rollHorror() {
     return randomizer.pickElementFromJsonArray("horror");
   }
 
+  @SuppressWarnings("UnusedDeclaration") // called via JSON reflection
   public String rollJourney() {
     return randomizer.pickElementFromJsonArray("journey");
   }
 
+  @SuppressWarnings("UnusedDeclaration") // called via JSON reflection
   public String rollExaltationResult() {
     return randomizer.pickElementFromJsonArray("exaltationResult");
   }
 
+  @SuppressWarnings("UnusedDeclaration") // called via JSON reflection
   public String rollExaltationFallout() {
     int roll = diceAndCoins.rollTenSidedDie();
     switch (roll) {
@@ -115,39 +134,48 @@ public class GenerateLifepath {
     lifepath.suggestedTraits.add(object);
   }
 
+  @SuppressWarnings("UnusedDeclaration") // called via JSON reflection
   public String rollBeastmanOrigin() {
     addTrait("racial merits");
     return randomizer.pickElementFromJsonArray("beastmanOrigin");
   }
 
+  @SuppressWarnings("UnusedDeclaration") // called via JSON reflection
   public String rollBarbarianOrigin() {
     return randomizer.pickElementFromJsonArray("barbarianOrigin");
   }
 
+  @SuppressWarnings("UnusedDeclaration") // called via JSON reflection
   public String rollShadowlandOrigin() {
     return randomizer.pickElementFromJsonArray("shadowlandOrigin");
   }
 
+  @SuppressWarnings("UnusedDeclaration") // called via JSON reflection
   public String rollNorthernOrigin() {
     return randomizer.pickElementFromJsonArray("northernOrigin");
   }
 
+  @SuppressWarnings("UnusedDeclaration") // called via JSON reflection
   public String rollEasternOrigin() {
     return randomizer.pickElementFromJsonArray("easternOrigin");
   }
 
+  @SuppressWarnings("UnusedDeclaration") // called via JSON reflection
   public String rollWesternOrigin() {
     return randomizer.pickElementFromJsonArray("westernOrigin");
   }
 
+  @SuppressWarnings("UnusedDeclaration") // called via JSON reflection
   public String rollSouthernOrigin() {
     return randomizer.pickElementFromJsonArray("southernOrigin");
   }
 
+  @SuppressWarnings("UnusedDeclaration") // called via JSON reflection
   public String rollSoutheastOrigin() {
     return randomizer.pickElementFromJsonArray("southeastOrigin");
   }
 
+  @SuppressWarnings("UnusedDeclaration") // called via JSON reflection
   public String rollSouthwestOrigin() {
     return randomizer.pickElementFromJsonArray("southwestOrigin");
   }
