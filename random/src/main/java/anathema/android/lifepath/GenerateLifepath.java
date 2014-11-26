@@ -124,6 +124,10 @@ public class GenerateLifepath {
     return randomizer.pickElementFromJsonArray("barbarianOrigin");
   }
 
+  public String rollShadowlandOrigin() {
+    return randomizer.pickElementFromJsonArray("shadowlandOrigin");
+  }
+
   public String rollNorthernOrigin() {
     return randomizer.pickElementFromJsonArray("northernOrigin");
   }
