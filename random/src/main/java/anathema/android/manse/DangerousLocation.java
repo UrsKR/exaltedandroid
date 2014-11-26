@@ -13,7 +13,7 @@ public class DangerousLocation implements ManseSpecialty {
 
   @Override
   public String getReward() {
-    return "The Exalt might tame or channel the dangers around you Manse.";
+    return "The Exalt might tame or channel the dangers around the Manse.";
   }
 
   @Override
