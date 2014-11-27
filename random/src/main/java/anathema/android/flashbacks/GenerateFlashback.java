@@ -25,10 +25,10 @@ public class GenerateFlashback {
     flashback.append("\n");
     int roll = diceAndCoins.rollTenSidedDie();
     if (roll <= 7) {
-      flashback.append("Kept control of myself...and completed my task... ");
+      flashback.append("Kept control of myself... ");
       flashback.append(randomizer.pickElementFromJsonArray("resultUnderControl"));
     } else {
-      flashback.append("Lost myself to the curse... and completed my mission... ");
+      flashback.append("Lost myself to the curse... ");
       flashback.append(randomizer.pickElementFromJsonArray("resultUnderCurse"));
     }
     return flashback.toString();
