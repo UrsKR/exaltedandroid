@@ -57,7 +57,6 @@ public class GenerateLifepath {
     String childhood = randomizer.pickElementFromJsonArray("childhood");
     String youth = resolver.resolvePlaceholders(childhood);
     appendToLifepath(youth);
-    appendToLifepath(".");
   }
 
   private void rollFamily() {
