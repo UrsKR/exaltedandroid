@@ -30,7 +30,7 @@ public class VillageFragment extends GeneratorFragment {
   }
 
   public void generate(DiceAndCoins diceAndCoins) {
-    String village = new PatternBasedGenerator(diceAndCoins, new FileToString(getActivity().getAssets()), "village", "villagepattern").generate();
+    String village = new PatternBasedGenerator(diceAndCoins, new FileToString(getActivity().getAssets()), "village").generate();
     villageView.setText(village);
   }
 }

@@ -30,7 +30,7 @@ public class FlashbackFragment extends GeneratorFragment {
   }
 
   public void generate(DiceAndCoins diceAndCoins) {
-    String flashback = new PatternBasedGenerator(diceAndCoins, new FileToString(getActivity().getAssets()), "flashbacks", "flashbackpattern").generate();
+    String flashback = new PatternBasedGenerator(diceAndCoins, new FileToString(getActivity().getAssets()), "flashbacks").generate();
     flashbackView.setText(flashback);
   }
 }
