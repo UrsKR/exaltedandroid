@@ -11,7 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-//http://lovethelabyrinth.blogspot.de/2014/11/random-exalted-fashion.html
+//http://lovethelabyrinth.blogspot.de/2014/10/exalted-3e-lifepathing-your-character.html
 public class LifepathFragment extends GeneratorFragment {
 
   private TextView lifepathView;
