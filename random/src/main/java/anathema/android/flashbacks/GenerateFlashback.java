@@ -7,13 +7,12 @@ import anathema.android.util.PlaceholderResolver;
 import anathema.android.util.Randomizer;
 
 public class GenerateFlashback {
-  private final Randomizer randomizer;
   private final PlaceholderResolver resolver;
   private final FileToString fileToString;
 
   public GenerateFlashback(DiceAndCoins diceAndCoins, FileToString fileToString) {
     this.fileToString = fileToString;
-    this.randomizer = new JsonRandomizer("flashbacks", diceAndCoins, fileToString);
+    Randomizer randomizer = new JsonRandomizer("flashbacks", diceAndCoins, fileToString);
     this.resolver = new PlaceholderResolver(GenerateFlashback.class, this, randomizer);
   }
 
