@@ -23,7 +23,7 @@ public class GenerateVillage {
     StringBuilder village = new StringBuilder();
     int numberOfEvents = findNumberOfEvents(village, sizeRoll);
     for (int event = 1; event <= numberOfEvents; event++) {
-      String eventText = generateIssues();
+      String eventText = generateIssue();
       if (event == 1 || event == 3) {
         village.append(eventText);
         if (numberOfEvents != 2) {
@@ -50,19 +50,9 @@ public class GenerateVillage {
     return village.toString();
   }
 
-  private String generateIssues() {
-    StringBuilder issue = new StringBuilder();
-    int roll = diceAndCoins.rollTenSidedDie();
-    if (roll <= 6) {
-      String unresolved = "#externalBehavior# #externalIssues#";
-      String result = resolver.resolvePlaceholders(unresolved);
-      issue.append(result);
-    } else {
-      String unresolved = "#internalBehavior# #internalIssues#";
-      String result = resolver.resolvePlaceholders(unresolved);
-      issue.append(result);
-    }
-    return issue.toString();
+  private String generateIssue() {
+    String issue = randomizer.pickElementFromJsonArray("issue");
+    return resolver.resolvePlaceholders(issue);
   }
 
   private int findNumberOfEvents(StringBuilder village, int sizeRoll) {
