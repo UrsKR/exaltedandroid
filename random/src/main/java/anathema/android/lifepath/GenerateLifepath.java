@@ -23,12 +23,20 @@ public class GenerateLifepath {
     lifepath.lifepath.append(" ");
     rollFamily();
     lifepath.lifepath.append("\n");
+    rollChildhood();
+    lifepath.lifepath.append(" ");
     rollAdultCareer();
     lifepath.lifepath.append("\n");
     rollExaltation();
     lifepath.lifepath.append("\n");
     lifepath.lifepath.append("Now, forge your destiny!");
     return lifepath;
+  }
+
+  private void rollChildhood() {
+    String childhood = randomizer.pickElementFromJsonArray("childhood");
+    String youth = resolver.resolvePlaceholders(childhood);
+    lifepath.lifepath.append(youth);
   }
 
   private void rollFamily() {
@@ -53,7 +61,7 @@ public class GenerateLifepath {
   }
 
   private void rollAdultCareer() {
-    String adultCareer = resolver.resolvePlaceholders("As an adult, you became a %rollCareer%.");
+    String adultCareer = resolver.resolvePlaceholders("As an adult, you became %rollCareer%.");
     lifepath.lifepath.append(adultCareer);
   }
 
@@ -84,6 +92,11 @@ public class GenerateLifepath {
   @SuppressWarnings("UnusedDeclaration") // called via JSON reflection
   public String rollAssassin() {
     return randomizer.pickElementFromJsonArray("assassin");
+  }
+
+  @SuppressWarnings("UnusedDeclaration") // called via JSON reflection
+  public String rollSupernaturalCreature() {
+    return randomizer.pickElementFromJsonArray("supernaturalCreature");
   }
 
   @SuppressWarnings("UnusedDeclaration") // called via JSON reflection

@@ -1,0 +1,14 @@
+{
+  "childhood":[
+    "Your childhood was calm and protected.",
+    "When you were young, you studied in a faraway land.",//(Foreign Language , Social, and Lore skills possible)
+    "As a child, you were nearly killed by %rollAssassin%",    
+    "You spent much of your childhood in bed, suffering from a vile illness.",
+    "Showing early talent, you studied with Immaculates even as a child.", //(Marital Arts, Lore, and Socialize skills)
+    "Young though you were, an occultist took you under his wing.", //(Occult, Lore, and Language Skills)
+    "Growing up, you proved your worth at a military academy.", //(Weapon, War, and Language Skills)
+    "A cruel turn of fate saw you lost in the wilderness as a child, only to return after many years had passed.",//(Survival, Animal Handling, Archery skills)
+    "You, though, took to the street as a runaway.", //(Survival, Larceny, and other street skills) 
+    "A child of beauty and wits, a %rollSupernaturalCreature% adopted you as his Favorite." //with possible merits and skills from this prolonged encounter.) 
+    ]
+}
