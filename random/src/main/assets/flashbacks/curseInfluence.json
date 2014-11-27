@@ -1,14 +1,14 @@
 {
   "curseInfluence":[
-    "Kept control of myself... %rollResultUnderControl%",
-    "Kept control of myself... %rollResultUnderControl%",
-    "Kept control of myself... %rollResultUnderControl%",
-    "Kept control of myself... %rollResultUnderControl%",
-    "Kept control of myself... %rollResultUnderControl%",
-    "Kept control of myself... %rollResultUnderControl%",
-    "Kept control of myself... %rollResultUnderControl%",
-    "Lost myself to the curse... %rollResultUnderCurse%",
-    "Lost myself to the curse... %rollResultUnderCurse%",
-    "Lost myself to the curse... %rollResultUnderCurse%"
+    "Kept control of myself... #resultUnderControl#",
+    "Kept control of myself... #resultUnderControl#",
+    "Kept control of myself... #resultUnderControl#",
+    "Kept control of myself... #resultUnderControl#",
+    "Kept control of myself... #resultUnderControl#",
+    "Kept control of myself... #resultUnderControl#",
+    "Kept control of myself... #resultUnderControl#",
+    "Lost myself to the curse... #resultUnderCurse#",
+    "Lost myself to the curse... #resultUnderCurse#",
+    "Lost myself to the curse... #resultUnderCurse#"
   ]
 }

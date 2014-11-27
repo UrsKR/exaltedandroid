@@ -1,0 +1,3 @@
+#action#...#object#...
+#conflict#!
+#curseInfluence#
