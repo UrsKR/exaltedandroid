@@ -5,6 +5,7 @@ import anathema.android.DiceAndCoins;
 import anathema.android.GeneratorFragment;
 import anathema.android.R;
 import anathema.android.util.FileToString;
+import anathema.android.util.PatternBasedGenerator;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -29,7 +30,7 @@ public class VillageFragment extends GeneratorFragment {
   }
 
   public void generate(DiceAndCoins diceAndCoins) {
-    String village = new GenerateVillage(diceAndCoins, new FileToString(getActivity().getAssets())).generate();
+    String village = new PatternBasedGenerator(diceAndCoins, new FileToString(getActivity().getAssets()), "village", "villagepattern").generate();
     villageView.setText(village);
   }
 }

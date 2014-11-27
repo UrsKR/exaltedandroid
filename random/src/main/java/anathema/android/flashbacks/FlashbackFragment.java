@@ -4,6 +4,7 @@ import anathema.android.DiceAndCoins;
 import anathema.android.GeneratorFragment;
 import anathema.android.R;
 import anathema.android.util.FileToString;
+import anathema.android.util.PatternBasedGenerator;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -29,7 +30,7 @@ public class FlashbackFragment extends GeneratorFragment {
   }
 
   public void generate(DiceAndCoins diceAndCoins) {
-    String flashback = new GenerateFlashback(diceAndCoins, new FileToString(getActivity().getAssets())).generate();
+    String flashback = new PatternBasedGenerator(diceAndCoins, new FileToString(getActivity().getAssets()), "flashbacks", "flashbackpattern").generate();
     flashbackView.setText(flashback);
   }
 }
