@@ -1,14 +1,14 @@
 {
   "familySize":[
-    "to a %rollOccupation%'s family without any other Children.",
-    "to a small family of %rollOccupation%s. Your siblings are few in number.",
-    "to a large family of %rollOccupation%s. You have a handful of siblings.",
-    "to a giant family of %rollOccupation%s. Your siblings are without count.",
-    "to an extended household, headed by %rollOccupation%s. You grew up with your cousins.",
-    "to an extended household, headed by %rollOccupation%s. You grew up living with your aunt and uncle and your parents' elders.",
-    "to an extended household, headed by %rollOccupation%s. You grew up surrounded by aunts, uncles and relatives even farther removed.",
-    "in a small village of cousins and extended family, founded by %rollOccupation%s.",
-    "in a large village of cousins and extended family, founded by %rollOccupation%s. Whereever you went, you were sure to meet some relatives.",
-    "to a sprawling family, headed by %rollOccupation%s. To this day, you can rely on having a relative in every major city."
+    "to a %rollOccupation%'s family without any other Children",
+    "to a small family of %rollOccupation%s. Your siblings are few in number",
+    "to a large family of %rollOccupation%s. You have a handful of siblings",
+    "to a giant family of %rollOccupation%s. Your siblings are without count",
+    "to an extended household, headed by %rollOccupation%s. You grew up with your cousins",
+    "to an extended household, headed by %rollOccupation%s. You grew up living with your aunt and uncle and your parents' elders",
+    "to an extended household, headed by %rollOccupation%s. You grew up surrounded by aunts, uncles and relatives even farther removed",
+    "in a small village of close family and cousins, founded by %rollOccupation%s",
+    "in your family village, founded by %rollOccupation%s. Whereever you went, you were sure to meet some relatives",
+    "to a sprawling family, headed by %rollOccupation%s. To this day, you can rely on having a relative in every major city"
   ]
 }

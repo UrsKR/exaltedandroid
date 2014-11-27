@@ -28,6 +28,9 @@ public class PlaceholderResolver {
         throw new RuntimeException(e);
       }
     }
+    if (pattern.matcher(resolvedText).find()) {
+      resolvedText = resolvePlaceholders(resolvedText);
+    }
     return resolvedText;
   }
 }
