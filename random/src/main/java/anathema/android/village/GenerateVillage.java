@@ -18,7 +18,7 @@ public class GenerateVillage {
   }
 
   public String generate() {
-    String unresolved = fileToString.loadFile("flashbacks/villagepattern.txt");
+    String unresolved = fileToString.loadFile("village/villagepattern.txt");
     return resolver.resolvePlaceholders(unresolved);
   }
 }
