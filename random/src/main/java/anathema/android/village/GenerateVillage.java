@@ -54,18 +54,13 @@ public class GenerateVillage {
     StringBuilder issue = new StringBuilder();
     int roll = diceAndCoins.rollTenSidedDie();
     if (roll <= 6) {
-      String behaviour = randomizer.pickElementFromJsonArray("externalBehavior");
-      String cause = randomizer.pickElementFromJsonArray("externalIssues");
-      issue.append(behaviour);
-      issue.append(" ");
-      issue.append(cause);
+      String unresolved = "#externalBehavior# #externalIssues#";
+      String result = resolver.resolvePlaceholders(unresolved);
+      issue.append(result);
     } else {
-      String behaviour = randomizer.pickElementFromJsonArray("internalBehavior");
-      behaviour = resolver.resolvePlaceholders(behaviour);
-      String cause = randomizer.pickElementFromJsonArray("internalIssues");
-      issue.append(behaviour);
-      issue.append(" ");
-      issue.append(cause);
+      String unresolved = "#internalBehavior# #internalIssues#";
+      String result = resolver.resolvePlaceholders(unresolved);
+      issue.append(result);
     }
     return issue.toString();
   }
