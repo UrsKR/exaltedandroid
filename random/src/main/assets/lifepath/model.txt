@@ -1,31 +1,5 @@
 EXALTED SOLAR LIFEPATH GENERATOR
 
-Family Ranking/Background (Consider buying Merits like social influence, resources, servants as needed IF you retained them post Exaltation.)
-
-Slave
-Farmer
-Merchant
-Military
-Criminal
-Servant (Household/Social)
-Administrative/Minor Noble(Realm bureaucrat, mayor, guild factor)
-Noble (Realm or Threshold)
-God Descendant (Yu-Shan, Local Court ties)
-Unknown (Family lost, raised in monastery, etc.)
-
-Family Size
-
-Single Child (No close relations)
-Small Family (1-2 siblings)
-Large Family (3-6 siblings)
-Giant Family (10 or more siblings)
-Small Extended Household (Cousins and siblings in same household)
-Large Extended Household (Aunts/Uncles and cousins, siblings in same household, or at least 2 generations)
-Giant Extended Household (Grandparents, Aunt/Uncles and cousins, many siblings in same household, at least 3 generations)
-Small Village (Many siblings, extended family, and cousins all living in close proximity.)
-Large Village (Many siblings, extended family, many generations, all your cousins, and other families related to yours living in close proximity.)
-A family member in every city. (You just have one of those really huge, slightly inbred, but widely spread families. Consider buying merit to reflect this Influence.)
-
 Family Status
 
 1-6 Both Parents are alive and well.
@@ -56,6 +30,3 @@ Military Academy (Weapon, War, and Language Skills)
 Lost in Wilderness for Many Years (Survival, Animal Handling, Archery skills)
 Runaway (Survival, Larceny, and other street skills)
 Favorite of (1-2 God, 3-4 Exalt, 5-6 Fair Folk, 7-8 Ghosts, 9-10 Demon/with possible merits and skills from this prolonged encounter.)
-
-Adult Career (Very optional, just to give ideas for ability focus)
-
