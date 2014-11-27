@@ -20,34 +20,55 @@ public class GenerateLifepath {
   public Lifepath generate() {
     this.lifepath = new Lifepath();
     rollOrigin();
-    lifepath.lifepath.append(" ");
+    appendToLifepath(" ");
     rollFamily();
-    lifepath.lifepath.append("\n");
+    appendToLifepath("\n");
+    appendToLifepath("\n");
+    rollFamilyEvent();
+    appendToLifepath("\n");
     rollChildhood();
-    lifepath.lifepath.append(" ");
+    appendToLifepath(" ");
     rollAdultCareer();
-    lifepath.lifepath.append("\n");
+    appendToLifepath("\n");
+    appendToLifepath("\n");
     rollExaltation();
-    lifepath.lifepath.append("\n");
-    lifepath.lifepath.append("Now, forge your destiny!");
+    appendToLifepath("\n");
+    appendToLifepath("Now, forge your destiny!");
     return lifepath;
+  }
+
+  private void rollFamilyEvent() {
+    int roll = diceAndCoins.rollTenSidedDie();
+    if (roll <= 6) {
+      appendToLifepath("To this day, both your parents are alive and well.");
+    } else {
+      appendToLifepath("Soon after you were born, ");
+      String familyDrama = randomizer.pickElementFromJsonArray("familyDrama");
+      appendToLifepath(familyDrama);
+      appendToLifepath(".");
+    }
+  }
+
+  private void appendToLifepath(String familyDrama) {
+    lifepath.lifepath.append(familyDrama);
   }
 
   private void rollChildhood() {
     String childhood = randomizer.pickElementFromJsonArray("childhood");
     String youth = resolver.resolvePlaceholders(childhood);
-    lifepath.lifepath.append(youth);
+    appendToLifepath(youth);
+    appendToLifepath(".");
   }
 
   private void rollFamily() {
     int roll = diceAndCoins.rollTenSidedDie();
     lifepath.suggestedTraits.add("Influence and Connections to represent your upbringing");
     if (roll == 10) {
-      lifepath.lifepath.append("Raised by monks, you never met your family.");
+      appendToLifepath("Raised by monks, you never met your family.");
       return;
     }
     String family = resolver.resolvePlaceholders("You were born %rollFamilySize%.");
-    lifepath.lifepath.append(family);
+    appendToLifepath(family);
   }
 
   @SuppressWarnings("UnusedDeclaration")    // called via JSON reflection
@@ -62,7 +83,7 @@ public class GenerateLifepath {
 
   private void rollAdultCareer() {
     String adultCareer = resolver.resolvePlaceholders("As an adult, you became %rollCareer%.");
-    lifepath.lifepath.append(adultCareer);
+    appendToLifepath(adultCareer);
   }
 
   @SuppressWarnings("UnusedDeclaration") // called via JSON reflection
@@ -73,14 +94,14 @@ public class GenerateLifepath {
   public void rollOrigin() {
     String generalOrigin = randomizer.pickElementFromJsonArray("generalOrigin");
     String origin = resolver.resolvePlaceholders(generalOrigin);
-    lifepath.lifepath.append("You hail from ");
-    lifepath.lifepath.append(origin);
-    lifepath.lifepath.append(".");
+    appendToLifepath("You hail from ");
+    appendToLifepath(origin);
+    appendToLifepath(".");
   }
 
   public void rollExaltation() {
     String exaltation = resolver.resolvePlaceholders("When %rollExaltationTrigger%, you exalted as a %rollExaltationResult% and found yourself %rollExaltationFallout% shortly after.");
-    lifepath.lifepath.append(exaltation);
+    appendToLifepath(exaltation);
   }
 
   @SuppressWarnings("UnusedDeclaration") // called via JSON reflection
