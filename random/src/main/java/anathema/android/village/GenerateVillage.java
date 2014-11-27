@@ -15,7 +15,7 @@ public class GenerateVillage {
   public GenerateVillage(DiceAndCoins diceAndCoins, FileToString fileToString) {
     this.diceAndCoins = diceAndCoins;
     this.randomizer = new JsonRandomizer("village", diceAndCoins, fileToString);
-    this.resolver = new PlaceholderResolver(GenerateVillage.class, this);
+    this.resolver = new PlaceholderResolver(GenerateVillage.class, this, randomizer);
   }
 
   public String generate() {
@@ -96,10 +96,5 @@ public class GenerateVillage {
         return 4;
     }
     throw new IllegalArgumentException("Roll out of range [1,10]");
-  }
-  
-  @SuppressWarnings("UnusedDeclaration")
-  public String rollRelief(){
-    return randomizer.pickElementFromJsonArray("relief");
   }
 }
