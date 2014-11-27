@@ -13,7 +13,7 @@ public class GenerateFashion {
 
   public GenerateFashion(DiceAndCoins diceAndCoins, FileToString fileToString) {
     this.diceAndCoins = diceAndCoins;
-    this.randomizer = new JsonRandomizer(diceAndCoins, fileToString);
+    this.randomizer = new JsonRandomizer("fashion", diceAndCoins, fileToString);
     this.resolver = new PlaceholderResolver(GenerateFashion.class, this);
   }
 
