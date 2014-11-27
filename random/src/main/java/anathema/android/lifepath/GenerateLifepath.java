@@ -1,6 +1,7 @@
 package anathema.android.lifepath;
 
 import anathema.android.DiceAndCoins;
+import anathema.android.Flip;
 import anathema.android.util.FileToString;
 import anathema.android.util.JsonRandomizer;
 import anathema.android.util.PlaceholderResolver;
@@ -174,8 +175,14 @@ public class GenerateLifepath {
         addTrait("Charms to interact with beasts");
         return "bonded with a local beast";
       case 8:
-        addTrait("an Ally");
-        return "in the arms of your Lunar mate";
+        Flip flip = diceAndCoins.flipACoin();
+        if (flip == Flip.Head) {
+          addTrait("an Ally");
+          return "in the arms of your Lunar mate";
+        }
+        else{
+          return "in the arms of your Lunar mate... with his claws in your back.";          
+        }
       case 9:
         addTrait("Sorcery");
         return "awakening to a deeper understanding of Creation";
