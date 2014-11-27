@@ -8,40 +8,33 @@ public class PlaceholderResolver {
 
   public static final String METHOD_CALL_PATTERN = "%(.+?)%";
   public static final String JSON_TABLE_PATTERN = "#(.+?)#";
-  private Class clazz;
-  private Object instance;
+  private final Randomizer randomizer;
+  private final Class clazz;
+  private final Object instance;
 
   public PlaceholderResolver(Class clazz, Object instance) {
+    this(clazz, instance, new NullRandomizer());
+  }
+  public PlaceholderResolver(Class clazz, Object instance, Randomizer randomizer){
     this.clazz = clazz;
     this.instance = instance;
+    this.randomizer = randomizer;
   }
 
-  @SuppressWarnings("unchecked")
-  public String resolvePlaceholders(String textWithPlaceholders) {
-    Pattern pattern = Pattern.compile("%(.+?)%");
-    Matcher matcher = pattern.matcher(textWithPlaceholders);
-    String resolvedText = textWithPlaceholders;
-    resolvedText = resolveThroughMethodCalls(matcher, resolvedText);
-    if (pattern.matcher(resolvedText).find()) {
-      resolvedText = resolvePlaceholders(resolvedText);
-    }
-    return resolvedText;
-  }
-
-  public String resolvePlaceholders(String unresolved, JsonRandomizer randomizer) {
+  public String resolvePlaceholders(String unresolved) {
     Pattern methodCall = Pattern.compile(METHOD_CALL_PATTERN);
     Pattern jsonTable = Pattern.compile(JSON_TABLE_PATTERN);
     Matcher jsonMatcher = jsonTable.matcher(unresolved);
-    String halfResolved = resolveThroughJsonRolls(jsonMatcher, unresolved, randomizer);
+    String halfResolved = resolveThroughJsonRolls(jsonMatcher, unresolved);
     Matcher methodMatcher = methodCall.matcher(halfResolved);
     String fullyResolved = resolveThroughMethodCalls(methodMatcher, halfResolved);
     if (methodCall.matcher(fullyResolved).find() || jsonTable.matcher(fullyResolved).find()) {
-      fullyResolved = resolvePlaceholders(fullyResolved, randomizer);
+      fullyResolved = resolvePlaceholders(fullyResolved);
     }
     return fullyResolved;
   }
 
-  private String resolveThroughJsonRolls(Matcher matcher, String unresolved, JsonRandomizer randomizer) {
+  private String resolveThroughJsonRolls(Matcher matcher, String unresolved) {
     String resolvedText = unresolved;
     while (matcher.find()) {
       String group = matcher.group(1);
@@ -51,6 +44,7 @@ public class PlaceholderResolver {
     return resolvedText;
   }
 
+  @SuppressWarnings("unchecked")
   private String resolveThroughMethodCalls(Matcher matcher, String unresolved) {
     String resolvedText = unresolved;
     while (matcher.find()) {

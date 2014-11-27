@@ -4,10 +4,11 @@ import anathema.android.DiceAndCoins;
 import anathema.android.util.FileToString;
 import anathema.android.util.JsonRandomizer;
 import anathema.android.util.PlaceholderResolver;
+import anathema.android.util.Randomizer;
 
 public class GenerateLifepath {
   private final DiceAndCoins diceAndCoins;
-  private final JsonRandomizer randomizer;
+  private final Randomizer randomizer;
   private final PlaceholderResolver resolver;
   private Lifepath lifepath;
 

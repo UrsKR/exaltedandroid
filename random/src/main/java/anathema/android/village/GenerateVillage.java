@@ -4,10 +4,11 @@ import anathema.android.DiceAndCoins;
 import anathema.android.util.FileToString;
 import anathema.android.util.JsonRandomizer;
 import anathema.android.util.PlaceholderResolver;
+import anathema.android.util.Randomizer;
 
 public class GenerateVillage {
 
-  private final JsonRandomizer randomizer;
+  private final Randomizer randomizer;
   private final DiceAndCoins diceAndCoins;
   private final PlaceholderResolver resolver;
 

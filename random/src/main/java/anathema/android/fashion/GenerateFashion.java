@@ -5,9 +5,10 @@ import anathema.android.Flip;
 import anathema.android.util.FileToString;
 import anathema.android.util.JsonRandomizer;
 import anathema.android.util.PlaceholderResolver;
+import anathema.android.util.Randomizer;
 
 public class GenerateFashion {
-  private final JsonRandomizer randomizer;
+  private final Randomizer randomizer;
   private final PlaceholderResolver resolver;
   private DiceAndCoins diceAndCoins;
 

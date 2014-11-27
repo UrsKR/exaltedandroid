@@ -5,7 +5,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class JsonRandomizer {
+public class JsonRandomizer implements Randomizer {
 
   private final DiceAndCoins diceAndCoins;
   private final FileToString fileToString;
@@ -17,10 +17,7 @@ public class JsonRandomizer {
     this.fileToString = fileToString;
   }
 
-  public JsonRandomizer(DiceAndCoins diceAndCoins, FileToString fileToString) {
-    this(null, diceAndCoins, fileToString);
-  }
-
+  @Override
   public String pickElementFromJsonArray(String array) {
     String content = loadArrayFileToString(array);
     try {
@@ -32,10 +29,12 @@ public class JsonRandomizer {
     }
   }
 
+  @Override
   public String pickNameFromJsonArray(String array) {
     return pickPropertyFromJsonArray(array, "name");
   }
 
+  @Override
   public String pickAttributeFromJsonArray(String array) {
     return pickPropertyFromJsonArray(array, "attribute");
   }
