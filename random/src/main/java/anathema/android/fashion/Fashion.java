@@ -1,7 +1,5 @@
 package anathema.android.fashion;
 
-import java.text.MessageFormat;
-
 public class Fashion {
   public String personal;     //0
   public String possessive;   //1
@@ -14,22 +12,7 @@ public class Fashion {
   public String hairStyle;
 
   public String asText() {
-    StringBuilder text = new StringBuilder();
-    String primary = MessageFormat.format(primaryPiece, personal, possessive, highlightColor, primaryColor);
-    text.append(capitalize(primary));
-    text.append(" ");
-    String secondary = MessageFormat.format(secondaryPiece, personal, possessive, highlightColor, primaryColor);
-    text.append(capitalize(secondary));
-    text.append("\n");
-    String firstAccessory = MessageFormat.format(primaryAccessory, personal, possessive, highlightColor, primaryColor);
-    text.append(capitalize(firstAccessory));
-    text.append(" ");
-    String secondAccessory = MessageFormat.format(secondaryAccessory, personal, possessive, highlightColor, primaryColor);
-    text.append(capitalize(secondAccessory));
-    text.append("\n");
-    String hair = MessageFormat.format(hairStyle, personal, possessive, highlightColor, primaryColor);
-    text.append(capitalize(hair));
-    return text.toString();
+    return capitalize(primaryPiece) + " " + capitalize(secondaryPiece) + "\n" + capitalize(primaryAccessory) + " " + capitalize(secondaryAccessory) + "\n" + capitalize(hairStyle);
   }
 
   private String capitalize(String text) {
