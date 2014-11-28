@@ -17,10 +17,10 @@ public class FashionGenerator implements Generator {
 
   @Override
   public Result generate(DiceAndCoins diceAndCoins) {
-    Fashion fashion = new GenerateFashion(diceAndCoins, new FileToString(context.getAssets())).generate();
+    String fashion = new GenerateFashion(diceAndCoins, new FileToString(context.getAssets())).generate();
     Result result = new Result();
     result.title = context.getString(R.string.title_fashion);
-    result.text = fashion.asText();
+    result.text = fashion;
     return result;
   }
 }
