@@ -18,7 +18,7 @@
     "Almost as prominent is {1} massive utility vest, stuffed with tools.",
     "%rollPatternAdjective% symbols give {1} appearance a spiritual air.",
     "%rollPatternAdjective% symbols give {1} appearance a spiritual air.",
-    "%rollPrimaryPiece%",
-    "%rollPrimaryPiece%"
+    "#primaryPiece#",
+    "#primaryPiece#"
   ]
 }

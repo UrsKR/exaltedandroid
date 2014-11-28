@@ -1,0 +1,14 @@
+A simple String:
+"This is the result."
+
+A String with lookup in anotherTable.json in the same directory:
+"We need to look at #anotherTable#.
+
+A String with lookup in anotherTable.json in the same directory, picking the object's attribute "adjective":
+"We need to look at #anotherTable,adjective#.
+
+A String with a method call back into the triggering class:
+"We need to call a %javaMethod%.
+
+A String with named placeholder "Personal" and "Possessive" to be replaced with named value called given from the engine:
+"~Personal~ was the predominant hero of ~Possessive~ age."

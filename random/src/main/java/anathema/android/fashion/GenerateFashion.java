@@ -2,10 +2,13 @@ package anathema.android.fashion;
 
 import anathema.android.DiceAndCoins;
 import anathema.android.Flip;
+import anathema.android.util.CombinedResolver;
 import anathema.android.util.FileToString;
 import anathema.android.util.JsonRandomizer;
 import anathema.android.util.PlaceholderResolver;
 import anathema.android.util.Randomizer;
+
+import java.util.HashMap;
 
 public class GenerateFashion {
   private final Randomizer randomizer;
@@ -15,7 +18,7 @@ public class GenerateFashion {
   public GenerateFashion(DiceAndCoins diceAndCoins, FileToString fileToString) {
     this.diceAndCoins = diceAndCoins;
     this.randomizer = new JsonRandomizer("fashion", diceAndCoins, fileToString);
-    this.resolver = new PlaceholderResolver(GenerateFashion.class, this);
+    this.resolver = CombinedResolver.create(GenerateFashion.class, this, randomizer, new HashMap<String, String>());
   }
 
   public Fashion generate() {
@@ -67,11 +70,10 @@ public class GenerateFashion {
   }
 
   public String rollAnyColor() {
-    String colorStyle = randomizer.pickElementFromJsonArray("colors");
-    return randomizer.pickElementFromJsonArray(colorStyle);
+    return resolver.resolvePlaceholders("#color#");
   }
 
-  @SuppressWarnings("UnusedDeclaration")
+  @SuppressWarnings("UnusedDeclaration")                    //From Random Tables
   public String rollPattern() {
     String patternStyle = randomizer.pickElementFromJsonArray("patterns");
     return randomizer.pickNameFromJsonArray(patternStyle);
@@ -81,15 +83,5 @@ public class GenerateFashion {
   public String rollPatternAdjective() {
     String patternStyle = randomizer.pickElementFromJsonArray("patterns");
     return randomizer.pickAttributeFromJsonArray(patternStyle);
-  }
-
-  @SuppressWarnings("UnusedDeclaration")
-  public String rollPrismaticColor() {
-    return randomizer.pickElementFromJsonArray("prismaticColors");
-  }
-
-  @SuppressWarnings("UnusedDeclaration")
-  public String rollMaterialColor() {
-    return randomizer.pickElementFromJsonArray("materialColors");
   }
 }

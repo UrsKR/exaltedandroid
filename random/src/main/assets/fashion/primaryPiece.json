@@ -18,7 +18,7 @@
     "{0} is wrapped in vines and foliage.",
     "{0} presents a uniform with a {2} %rollPattern% on its high collar.",
     "{0} presents a uniform with a {2} %rollPattern% on its high collar.",
-    "%rollSecondaryPiece%",
-    "%rollSecondaryPiece%"
+    "#secondaryPiece#",
+    "#secondaryPiece#"
   ]
 }

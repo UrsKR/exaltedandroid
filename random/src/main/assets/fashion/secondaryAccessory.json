@@ -18,7 +18,7 @@
     "{0} hides {1} face behind a %rollPattern% mask.",
     "{1} hands bear a number of heavy rings, all fashioned after a %rollPattern%''s form.",
     "{1} hands bear a number of heavy rings, all fashioned after a %rollPattern%''s form.",
-    "%rollPrimaryAccessory%",
-    "%rollPrimaryAccessory%"
+    "#primaryAccessory#",
+    "#primaryAccessory#"
   ]
  }

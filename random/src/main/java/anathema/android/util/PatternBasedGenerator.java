@@ -11,7 +11,7 @@ public class PatternBasedGenerator {
     this.fileToString = fileToString;
     this.tableFolder = tableFolder;
     Randomizer randomizer = new JsonRandomizer(tableFolder, diceAndCoins, fileToString);
-    this.resolver = new PlaceholderResolver(PatternBasedGenerator.class, this, randomizer);
+    this.resolver = CombinedResolver.createWithoutNamedValues(PatternBasedGenerator.class, this, randomizer);
   }
 
   public String generate() {

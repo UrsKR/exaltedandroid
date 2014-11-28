@@ -2,12 +2,14 @@ package anathema.android.lifepath;
 
 import anathema.android.DiceAndCoins;
 import anathema.android.Flip;
+import anathema.android.util.CombinedResolver;
 import anathema.android.util.FileToString;
 import anathema.android.util.JsonRandomizer;
 import anathema.android.util.PlaceholderResolver;
 import anathema.android.util.Randomizer;
 
 import java.text.MessageFormat;
+import java.util.HashMap;
 
 public class GenerateLifepath {
   private final DiceAndCoins diceAndCoins;
@@ -18,7 +20,7 @@ public class GenerateLifepath {
   public GenerateLifepath(DiceAndCoins diceAndCoins, FileToString fileToString) {
     this.diceAndCoins = diceAndCoins;
     this.randomizer = new JsonRandomizer("lifepath", diceAndCoins, fileToString);
-    this.resolver = new PlaceholderResolver(GenerateLifepath.class, this);
+    this.resolver = CombinedResolver.create(GenerateLifepath.class, this, randomizer, new HashMap<String, String>());
   }
 
   public Lifepath generate() {
