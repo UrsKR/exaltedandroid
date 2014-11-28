@@ -7,6 +7,8 @@ import anathema.android.util.JsonRandomizer;
 import anathema.android.util.PlaceholderResolver;
 import anathema.android.util.Randomizer;
 
+import java.text.MessageFormat;
+
 public class GenerateLifepath {
   private final DiceAndCoins diceAndCoins;
   private final Randomizer randomizer;
@@ -175,13 +177,13 @@ public class GenerateLifepath {
         addTrait("Charms to interact with beasts");
         return "bonded with a local beast";
       case 8:
-        Flip flip = diceAndCoins.flipACoin();
-        if (flip == Flip.Head) {
+        Flip friendFlip = diceAndCoins.flipACoin();
+        if (friendFlip == Flip.Head) {
           addTrait("an Ally");
           return "in the arms of your Lunar mate";
-        }
-        else{
-          return "in the arms of your Lunar mate... with his claws in your back.";          
+        } else {
+          String possessive = flipForSex();
+          return MessageFormat.format("in the arms of your Lunar mate... with {0} claws in your back.", possessive);
         }
       case 9:
         addTrait("Sorcery");
@@ -191,6 +193,15 @@ public class GenerateLifepath {
         return "hidden from Creation's eye, remaining secret to everyone";
       default:
         throw new IllegalArgumentException("Die roll out of bounds [1,10].");
+    }
+  }
+
+  private String flipForSex() {
+    Flip genderFlip = diceAndCoins.flipACoin();
+    if (genderFlip == Flip.Head) {
+      return "her";
+    } else {
+      return "his";
     }
   }
 
