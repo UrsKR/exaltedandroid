@@ -43,23 +43,23 @@ public class MainActivity extends Activity {
   }
 
   public void generateManse(View view) {
-    generateAndShow(new ManseGenerator());
+    generateAndShow(new ManseGenerator(getApplicationContext()));
   }
 
   public void generateFashion(View view) {
-    generateAndShow(new FashionGenerator(getAssets()));
+    generateAndShow(new FashionGenerator(getApplicationContext()));
   }
 
   public void generateFlashback(View view) {
-    generateAndShow(new FlashbackGenerator(getAssets()));
+    generateAndShow(new FlashbackGenerator(getApplicationContext()));
   }
 
   public void generateVillage(View view) {
-    generateAndShow(new VillageGenerator(getAssets()));
+    generateAndShow(new VillageGenerator(getApplicationContext()));
   }
 
   public void generateLifepath(View view) {
-    generateAndShow(new LifepathGenerator(getAssets()));
+    generateAndShow(new LifepathGenerator(getApplicationContext()));
   }
 
   private void generateAndShow(Generator generator) {

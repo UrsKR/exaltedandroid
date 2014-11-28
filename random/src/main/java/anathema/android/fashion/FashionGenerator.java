@@ -2,23 +2,24 @@ package anathema.android.fashion;
 
 import anathema.android.DiceAndCoins;
 import anathema.android.Generator;
+import anathema.android.R;
 import anathema.android.Result;
 import anathema.android.util.FileToString;
-import android.content.res.AssetManager;
+import android.content.Context;
 
 //http://lovethelabyrinth.blogspot.de/2014/11/random-exalted-fashion.html
 public class FashionGenerator implements Generator {
-  private AssetManager assets;
+  private Context context;
 
-  public FashionGenerator(AssetManager assets) {
-    this.assets = assets;
+  public FashionGenerator(Context context) {
+    this.context = context;
   }
 
   @Override
   public Result generate(DiceAndCoins diceAndCoins) {
-    Fashion fashion = new GenerateFashion(diceAndCoins, new FileToString(assets)).generate();
+    Fashion fashion = new GenerateFashion(diceAndCoins, new FileToString(context.getAssets())).generate();
     Result result = new Result();
-    result.title = "Fashion";
+    result.title = context.getString(R.string.title_fashion);
     result.text = fashion.asText();
     return result;
   }

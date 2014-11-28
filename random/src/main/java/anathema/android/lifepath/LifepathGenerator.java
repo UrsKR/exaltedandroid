@@ -2,23 +2,24 @@ package anathema.android.lifepath;
 
 import anathema.android.DiceAndCoins;
 import anathema.android.Generator;
+import anathema.android.R;
 import anathema.android.Result;
 import anathema.android.util.FileToString;
-import android.content.res.AssetManager;
+import android.content.Context;
 
 //http://lovethelabyrinth.blogspot.de/2014/10/exalted-3e-lifepathing-your-character.html
 public class LifepathGenerator implements Generator {
-  private AssetManager assets;
+  private Context context;
 
-  public LifepathGenerator(AssetManager assets) {
-    this.assets = assets;
+  public LifepathGenerator(Context context) {
+    this.context = context;
   }
 
   @Override
   public Result generate(DiceAndCoins diceAndCoins) {
-    Lifepath lifepath = new GenerateLifepath(diceAndCoins, new FileToString(assets)).generate();
+    Lifepath lifepath = new GenerateLifepath(diceAndCoins, new FileToString(context.getAssets())).generate();
     Result result = new Result();
-    result.title = "Lifepath";
+    result.title = context.getString(R.string.title_lifepath);
     result.text = lifepath.asText();
     return result;
   }
