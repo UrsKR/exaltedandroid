@@ -1,10 +1,10 @@
 package anathema.android.fashion;
 
 import anathema.android.DiceAndCoins;
-import anathema.android.Flip;
 import anathema.android.util.CombinedResolver;
 import anathema.android.util.FileToString;
 import anathema.android.util.JsonRandomizer;
+import anathema.android.util.Person;
 import anathema.android.util.PlaceholderResolver;
 import anathema.android.util.Randomizer;
 
@@ -23,7 +23,7 @@ public class GenerateFashion {
   }
 
   public Fashion generate() {
-    Person wearer = rollWearer();
+    Person wearer = Person.randomize(diceAndCoins);
     Colors colors = rollColors();
     Fashion fashion = new Fashion();
     namedValues.put("personal", wearer.personal);
@@ -43,19 +43,6 @@ public class GenerateFashion {
     colors.primaryColor = rollAnyColor();
     colors.highlightColor = rollAnyColor();
     return colors;
-  }
-
-  private Person rollWearer() {
-    Flip flip = diceAndCoins.flipACoin();
-    Person person = new Person();
-    if (flip == Flip.Head) {
-      person.personal = "he";
-      person.possessive = "his";
-    } else {
-      person.personal = "she";
-      person.possessive = "her";
-    }
-    return person;
   }
 
   public String rollPrimaryPiece() {
