@@ -13,7 +13,8 @@ A simple String:
 "Now, forge your destiny."
 
 A String with lookup in ``anotherTable.json`` in the same directory:
-"You hail from #anotherTable#."
+"You hail from #anotherTable#."  
+
 A String with lookup in ``anotherTable.json`` in the same directory, picking the object's attribute ``adjective``:
 "His dagger has a #anotherTable,adjective# handle."
 
