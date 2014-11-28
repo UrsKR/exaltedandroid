@@ -20,5 +20,6 @@
     <string name="label_reward">Reward</string>
     <string name="label_risk">Risk</string>
     <string name="title_lifepath">Lifepath</string>
+    <string name="title_village">Village</string>
 
 </resources>

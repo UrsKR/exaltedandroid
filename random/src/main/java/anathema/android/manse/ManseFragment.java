@@ -14,8 +14,6 @@ public class ManseFragment extends GeneratorFragment {
 
   private TextView nameView;
   private TextView resultView;
-  private TextView riskView;
-  private TextView rewardView;
 
   public ManseFragment() {
     // Required empty public constructor
@@ -27,16 +25,12 @@ public class ManseFragment extends GeneratorFragment {
     View view = inflater.inflate(R.layout.fragment_manse, container, false);
     nameView = (TextView) view.findViewById(R.id.text_name);
     resultView = (TextView) view.findViewById(R.id.text_detail);
-    rewardView = (TextView) view.findViewById(R.id.text_reward);
-    riskView = (TextView) view.findViewById(R.id.text_risk);
     return view;
   }
 
   public void generate(DiceAndCoins diceAndCoins) {
     ManseSpecialty specialty = new GenerateManse(diceAndCoins).generate();
     nameView.setText(specialty.getCaption());
-    resultView.setText(specialty.getDetails());
-    riskView.setText(specialty.getRisk());
-    rewardView.setText(specialty.getReward());
+    resultView.setText("Risk: " + specialty.getRisk() + "\n\n" + "Reward: " + specialty.getReward() + "\n\n" + specialty.getDetails());
   }
 }
