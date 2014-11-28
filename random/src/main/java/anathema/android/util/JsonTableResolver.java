@@ -28,7 +28,6 @@ public class JsonTableResolver implements PlaceholderResolver {
     while (matcher.find()) {
       String placeholder = matcher.group(1);
       String replacement;
-      System.out.println(placeholder + " in " + unresolved);
       if (placeholder.contains(",")) {
         String[] split = placeholder.split(",");
         replacement = randomizer.pickPropertyFromJsonArray(split[0], split[1]);

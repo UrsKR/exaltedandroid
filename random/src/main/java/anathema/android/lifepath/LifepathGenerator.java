@@ -17,10 +17,10 @@ public class LifepathGenerator implements Generator {
 
   @Override
   public Result generate(DiceAndCoins diceAndCoins) {
-    Lifepath lifepath = new GenerateLifepath(diceAndCoins, new FileToString(context.getAssets())).generate();
+    String lifepath = new GenerateLifepath(diceAndCoins, new FileToString(context.getAssets())).generate();
     Result result = new Result();
     result.title = context.getString(R.string.title_lifepath);
-    result.text = lifepath.asText();
+    result.text = lifepath;
     return result;
   }
 }

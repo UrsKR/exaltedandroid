@@ -1,14 +1,14 @@
 {
   "generalOrigin": [
     "the Realm",
-    "%rollNorthernOrigin%",
-    "%rollSouthernOrigin%",
-    "%rollWesternOrigin%",
-    "%rollEasternOrigin%",
-    "%rollSoutheastOrigin%",
-    "%rollSouthwestOrigin%",
-    "%rollBeastmanOrigin%",
-    "%rollBarbarianOrigin%",
-    "%rollShadowlandOrigin%"
+    "#northernOrigin#",
+    "#southernOrigin#",
+    "#westernOrigin#",
+    "#easternOrigin#",
+    "#southeastOrigin#",
+    "#southwestOrigin#",
+    "#beastmanOrigin#",
+    "#barbarianOrigin#",
+    "#shadowlandOrigin#"
   ]
 }

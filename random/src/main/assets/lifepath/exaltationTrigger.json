@@ -1,13 +1,13 @@
 {
   "exaltationTrigger":[
-    "%rollAssassin% attempted to kill you",
+    "#assassin# attempted to kill you",
     "you saved a village from an attack",
     "you discovered important lost lore",
-    "you faced down an angry %rollAngryCreature%",
-    "you were drawn into a conflict with the Realm over %rollConflict%",
-    "you faced the otherwordly horror of %rollHorror%",
+    "you faced down an angry #angryCreature#",
+    "you were drawn into a conflict with the Realm over #conflict#",
+    "you faced the otherwordly horror of #horror#",
     "you had a crisis of faith",
-    "you journeyed into the depths of %rollJourney%",
+    "you journeyed into the depths of #destination#",
     "you discovered your cause",
     "you found true love"
   ]

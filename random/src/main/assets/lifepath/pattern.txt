@@ -1,0 +1,7 @@
+You hail from #generalOrigin# #family#
+
+#familyEvent#
+#childhood# As an adult, you became #adultCareer#.
+
+When #exaltationTrigger#, you exalted as a #exaltationResult# and found yourself #exaltationFallout# shortly after.
+Now, forge your destiny!
