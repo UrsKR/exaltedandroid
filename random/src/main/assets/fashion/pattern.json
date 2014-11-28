@@ -1,0 +1,29 @@
+{
+  "pattern": [
+    { "name": "sun", "attribute":"solar" },
+    { "name": "moon", "attribute":"lunar" },
+    { "name": "star", "attribute":"heavenly" },
+    {"name": "dragon", "attribute": "draconic"},
+    {"name": "demon", "attribute":"demonic"},
+    {"name": "elemental", "attribute":"elemental"},
+    {"name": "ghost", "attribute":"ghostly"},
+    {"name": "fey creature", "attribute":"fey"},
+    {"name": "fairy noble", "attribute":"fey"},
+    {"name": "spirit", "attribute":"spiritual"},
+    {"name": "god", "attribute":"divine"},
+    { "name": "geometry", "attribute": "geometric"},
+    { "name": "circle", "attribute": "circular"},
+    { "name": "triangle", "attribute": "triangular"},
+    { "name": "square", "attribute": "square"},
+    { "name": "pentagram", "attribute": "five-pointed"},
+    { "name": "pentagon", "attribute": "five-cornered"},
+    { "name": "hexagram", "attribute": "six-pointed"},
+    { "name": "hexagon", "attribute": "six-cornered"},
+    { "name": "heptagram", "attribute": "seven-pointed"},
+    {"name": "animal", "attribute": "animalic"},
+    {"name": "plant", "attribute": "vegetative"},
+    {"name": "vine", "attribute": "vegetative"},
+    {"name": "leaf", "attribute": "vegetative"},
+    {"name": "tree", "attribute": "arboreal"}
+  ]
+}

@@ -16,8 +16,8 @@
     "Whatever else ~personal~ might wear is hidden by a poncho.",
     "Almost as prominent is ~possessive~ massive utility vest, stuffed with tools.",
     "Almost as prominent is ~possessive~ massive utility vest, stuffed with tools.",
-    "%rollPatternAdjective% symbols give ~possessive~ appearance a spiritual air.",
-    "%rollPatternAdjective% symbols give ~possessive~ appearance a spiritual air.",
+    "#pattern,attribute# symbols give ~possessive~ appearance a spiritual air.",
+    "#pattern,attribute# symbols give ~possessive~ appearance a spiritual air.",
     "#primaryPiece#",
     "#primaryPiece#"
   ]

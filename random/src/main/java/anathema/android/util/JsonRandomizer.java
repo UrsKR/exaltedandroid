@@ -29,17 +29,7 @@ public class JsonRandomizer implements Randomizer {
     }
   }
 
-  @Override
-  public String pickNameFromJsonArray(String array) {
-    return pickPropertyFromJsonArray(array, "name");
-  }
-
-  @Override
-  public String pickAttributeFromJsonArray(String array) {
-    return pickPropertyFromJsonArray(array, "attribute");
-  }
-
-  private String pickPropertyFromJsonArray(String array, String property) {
+  public String pickPropertyFromJsonArray(String array, String property) {
     String content = loadArrayFileToString(array);
     try {
       JSONArray entries = new JSONObject(content).getJSONArray(array);

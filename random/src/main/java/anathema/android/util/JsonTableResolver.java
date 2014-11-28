@@ -27,7 +27,14 @@ public class JsonTableResolver implements PlaceholderResolver {
     String resolvedText = unresolved;
     while (matcher.find()) {
       String placeholder = matcher.group(1);
-      String replacement = randomizer.pickElementFromJsonArray(placeholder);
+      String replacement;
+      System.out.println(placeholder + " in " + unresolved);
+      if (placeholder.contains(",")) {
+        String[] split = placeholder.split(",");
+        replacement = randomizer.pickPropertyFromJsonArray(split[0], split[1]);
+      } else {
+        replacement = randomizer.pickElementFromJsonArray(placeholder);
+      }
       resolvedText = resolvedText.replaceAll("#" + placeholder + "#", replacement);
     }
     return resolvedText;

@@ -14,7 +14,6 @@ import static java.lang.Character.isWhitespace;
 import static java.lang.Character.toUpperCase;
 
 public class GenerateFashion {
-  private final Randomizer randomizer;
   private final PlaceholderResolver resolver;
   private final HashMap<String, String> namedValues = new HashMap<>();
   private DiceAndCoins diceAndCoins;
@@ -23,7 +22,7 @@ public class GenerateFashion {
   public GenerateFashion(DiceAndCoins diceAndCoins, FileToString fileToString) {
     this.diceAndCoins = diceAndCoins;
     this.fileToString = fileToString;
-    this.randomizer = new JsonRandomizer("fashion", diceAndCoins, fileToString);
+    Randomizer randomizer = new JsonRandomizer("fashion", diceAndCoins, fileToString);
     this.resolver = CombinedResolver.create(GenerateFashion.class, this, randomizer, namedValues);
   }
 
@@ -37,6 +36,13 @@ public class GenerateFashion {
     String pattern = fileToString.loadFile("fashion/pattern.txt");
     String resolvedPattern = resolver.resolvePlaceholders(pattern);
     return capitalizeSentences(resolvedPattern);
+  }
+
+  private Colors rollColors() {
+    Colors colors = new Colors();
+    colors.primaryColor = resolver.resolvePlaceholders("#color#");
+    colors.highlightColor = resolver.resolvePlaceholders("#color#");
+    return colors;
   }
 
   private String capitalizeSentences(String text) {
@@ -53,24 +59,5 @@ public class GenerateFashion {
       pos++;
     }
     return builder.toString();
-  }
-
-  private Colors rollColors() {
-    Colors colors = new Colors();
-    colors.primaryColor = resolver.resolvePlaceholders("#color#");
-    colors.highlightColor = resolver.resolvePlaceholders("#color#");
-    return colors;
-  }
-
-  @SuppressWarnings("UnusedDeclaration") //From Random Tables
-  public String rollPattern() {
-    String patternStyle = randomizer.pickElementFromJsonArray("patterns");
-    return randomizer.pickNameFromJsonArray(patternStyle);
-  }
-
-  @SuppressWarnings("UnusedDeclaration")//From Random Tables
-  public String rollPatternAdjective() {
-    String patternStyle = randomizer.pickElementFromJsonArray("patterns");
-    return randomizer.pickAttributeFromJsonArray(patternStyle);
   }
 }

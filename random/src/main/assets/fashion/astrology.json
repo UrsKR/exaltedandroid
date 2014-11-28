@@ -1,7 +1,0 @@
-{
-  "astrology": [
-    { "name": "sun", "attribute":"solar" },
-    { "name": "moon", "attribute":"lunar" },
-    { "name": "star", "attribute":"heavenly" }
-  ]
-}
