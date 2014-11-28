@@ -63,8 +63,6 @@ public class MainActivity extends Activity {
   }
 
   private void generateAndShow(Generator generator) {
-    getFragmentManager().beginTransaction().replace(R.id.fragment_container, fragment).commit();
-    getFragmentManager().executePendingTransactions();
     Result result = generator.generate(diceAndCoins);
     fragment.setTitle(result.title);
     fragment.setText(result.text);
