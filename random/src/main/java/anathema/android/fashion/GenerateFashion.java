@@ -23,13 +23,13 @@ public class GenerateFashion {
   }
 
   public Fashion generate() {
+    Person wearer = rollWearer();
+    Colors colors = rollColors();
     Fashion fashion = new Fashion();
-    rollWearer(fashion);
-    rollColors(fashion);
-    namedValues.put("personal", fashion.personal);
-    namedValues.put("possessive", fashion.possessive);
-    namedValues.put("primaryColor", fashion.primaryColor);
-    namedValues.put("highlightColor", fashion.highlightColor);
+    namedValues.put("personal", wearer.personal);
+    namedValues.put("possessive", wearer.possessive);
+    namedValues.put("primaryColor", colors.primaryColor);
+    namedValues.put("highlightColor", colors.highlightColor);
     fashion.primaryPiece = rollPrimaryPiece();
     fashion.secondaryPiece = rollSecondaryPiece();
     fashion.primaryAccessory = rollPrimaryAccessory();
@@ -38,20 +38,24 @@ public class GenerateFashion {
     return fashion;
   }
 
-  private void rollColors(Fashion fashion) {
-    fashion.primaryColor = rollAnyColor();
-    fashion.highlightColor = rollAnyColor();
+  private Colors rollColors() {
+    Colors colors = new Colors();
+    colors.primaryColor = rollAnyColor();
+    colors.highlightColor = rollAnyColor();
+    return colors;
   }
 
-  private void rollWearer(Fashion fashion) {
+  private Person rollWearer() {
     Flip flip = diceAndCoins.flipACoin();
+    Person person = new Person();
     if (flip == Flip.Head) {
-      fashion.personal = "he";
-      fashion.possessive = "his";
+      person.personal = "he";
+      person.possessive = "his";
     } else {
-      fashion.personal = "she";
-      fashion.possessive = "her";
+      person.personal = "she";
+      person.possessive = "her";
     }
+    return person;
   }
 
   public String rollPrimaryPiece() {

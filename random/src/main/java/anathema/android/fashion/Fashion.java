@@ -1,10 +1,6 @@
 package anathema.android.fashion;
 
 public class Fashion {
-  public String personal;     //0
-  public String possessive;   //1
-  public String highlightColor;  //2
-  public String primaryColor; //3
   public String primaryPiece;
   public String secondaryPiece;
   public String primaryAccessory;
