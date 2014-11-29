@@ -32,7 +32,6 @@ public class MethodCallResolver implements PlaceholderResolver {
     while (matcher.find()) {
       try {
         String placeholder = matcher.group(1);
-        System.out.println(placeholder + " in " + unresolved);
         String replacement = (String) clazz.getDeclaredMethod(placeholder).invoke(instance);
         resolvedText = resolvedText.replaceAll("%" + placeholder + "%", replacement);
       } catch (IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {
