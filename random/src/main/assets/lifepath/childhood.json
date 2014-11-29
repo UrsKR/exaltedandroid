@@ -1,14 +1,14 @@
 {
   "childhood":[
     "Your childhood was calm and protected.",
-    "When you were young, you studied in a faraway land.",//(Foreign Language , Social, and Lore skills possible)
+    "When you were young, you studied in a faraway land. (Linguistics, Socialize, Lore)",
     "As a child, you were nearly killed by #assassin#.",    
     "You spent much of your childhood in bed, suffering from a vile illness.",
-    "Showing early talent, you studied with Immaculates even as a child.", //(Marital Arts, Lore, and Socialize skills)
-    "Young though you were, an occultist took you under his wing.", //(Occult, Lore, and Language Skills)
-    "Growing up, you proved your worth at a military academy.", //(Weapon, War, and Language Skills)
-    "A cruel turn of fate saw you lost in the wilderness as a child, only to return after many years had passed.",//(Survival, Animal Handling, Archery skills)
-    "You, though, took to the street as a runaway.", //(Survival, Larceny, and other street skills) 
-    "A child of beauty and wits, a #supernaturalCreature# adopted you as his Favorite." //with possible merits and skills from this prolonged encounter.) 
+    "Showing early talent, you studied with Immaculates even as a child. (Martial Arts, Lore, Socialize)",
+    "Young though you were, an occultist took you under his wing. (Occult, Lore, Linguistics)",
+    "Growing up, you proved your worth at a military academy. (Melee, Archery, Thrown, War)",
+    "A cruel turn of fate saw you lost in the wilderness as a child, only to return after many years had passed. (Survival, Resistance, Archery)",
+    "You, though, took to the street as a runaway. (Survival, Larceny, Athletics)", 
+    "A child of beauty and wits, a #supernaturalCreature# adopted you as his Favorite. (Merits befitting your patron)" 
     ]
 }

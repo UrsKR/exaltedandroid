@@ -1,15 +1,15 @@
 {
   "exaltationFallout": [
-    "hunted by Immaculates",
-    "worshipped by a local village",
-    "mentored by a Sidereal",
-    "supported by a Deathlord",
-    "in an alliance with a local God",
-    "drawn to a lost Manse by your dreams",
-    "bonded with a local beast",
-    "in the arms of your Lunar mate",
+    "hunted by Immaculates (Charms to improve your reputation, Stealth Charms)",
+    "worshipped by a local village (Cult, Followers)",
+    "mentored by a Sidereal (Martial Arts Charms)",
+    "supported by a Deathlord (Artifact)",
+    "in an alliance with a local God (Social Influence)",
+    "drawn to a lost Manse by your dreams (Manse)",
+    "bonded with a local beast (Familiar, Charms)",
+    "in the arms of your Lunar mate (Ally)",
     "in the arms of your Lunar mate... with %rollPossessive% claws in your back",
-    "awakening to a deeper understanding of Creation",
-    "hidden from Creation's eye, remaining secret to everyone"
+    "awakening to a deeper understanding of Creation (Sorcery)",
+    "hidden from Creation's eye, remaining secret to everyone (Merits reflecting your mortal cover)"
   ]
 }
