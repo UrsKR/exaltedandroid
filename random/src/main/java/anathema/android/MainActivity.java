@@ -7,6 +7,7 @@ import anathema.android.manse.ManseGenerator;
 import anathema.android.village.VillageGenerator;
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.SpannableString;
 import android.text.method.LinkMovementMethod;
@@ -15,6 +16,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ShareActionProvider;
 import android.widget.TextView;
 
 
@@ -22,6 +24,7 @@ public class MainActivity extends Activity {
 
   private final DiceAndCoins diceAndCoins = new DiceAndCoins();
   private TitleTextFragment fragment;
+  private ShareActionProvider mShareActionProvider;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -31,7 +34,8 @@ public class MainActivity extends Activity {
       this.fragment = new TitleTextFragment();
       getFragmentManager().beginTransaction().add(R.id.fragment_container, fragment).commit();
     } else {
-      this.fragment = (TitleTextFragment) getFragmentManager().getFragment(savedInstanceState, TitleTextFragment.class.getName());
+      this.fragment = (TitleTextFragment) getFragmentManager().getFragment(savedInstanceState,
+              TitleTextFragment.class.getName());
     }
   }
 
@@ -66,13 +70,26 @@ public class MainActivity extends Activity {
     Result result = generator.generate(diceAndCoins);
     fragment.setTitle(result.title);
     fragment.setText(result.text);
+    setShareIntent(result.text);
   }
 
   @Override
   public boolean onCreateOptionsMenu(Menu menu) {
     MenuInflater inflater = getMenuInflater();
     inflater.inflate(R.menu.menu_main, menu);
+    MenuItem item = menu.findItem(R.id.menu_item_share);
+    mShareActionProvider = (ShareActionProvider) item.getActionProvider();
     return true;
+  }
+
+  public void setShareIntent(String text) {
+    Intent shareIntent = new Intent();
+    shareIntent.setAction(Intent.ACTION_SEND);
+    shareIntent.putExtra(Intent.EXTRA_TEXT, text);
+    shareIntent.setType("text/plain");
+    if (mShareActionProvider != null) {
+      mShareActionProvider.setShareIntent(shareIntent);
+    }
   }
 
   @Override
@@ -89,11 +106,8 @@ public class MainActivity extends Activity {
   public void showCredits(MenuItem item) {
     SpannableString credits = new SpannableString(getString(R.string.credits_text));
     Linkify.addLinks(credits, Linkify.ALL);
-    AlertDialog dialog = new AlertDialog.Builder(this)
-            .setPositiveButton(android.R.string.ok, null)
-            .setTitle(R.string.credits_title)
-            .setMessage(credits)
-            .create();
+    AlertDialog dialog = new AlertDialog.Builder(this).setPositiveButton(android.R.string.ok, null).setTitle(
+            R.string.credits_title).setMessage(credits).create();
     dialog.show();
     ((TextView) dialog.findViewById(android.R.id.message)).setMovementMethod(LinkMovementMethod.getInstance());
   }
