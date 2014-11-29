@@ -19,6 +19,8 @@ import android.view.View;
 import android.widget.ShareActionProvider;
 import android.widget.TextView;
 
+import static android.content.Intent.*;
+
 
 public class MainActivity extends Activity {
 
@@ -70,7 +72,7 @@ public class MainActivity extends Activity {
     Result result = generator.generate(diceAndCoins);
     fragment.setTitle(result.title);
     fragment.setText(result.text);
-    setShareIntent(result.text);
+    setShareIntent(result);
   }
 
   @Override
@@ -82,10 +84,11 @@ public class MainActivity extends Activity {
     return true;
   }
 
-  public void setShareIntent(String text) {
+  public void setShareIntent(Result result) {
     Intent shareIntent = new Intent();
-    shareIntent.setAction(Intent.ACTION_SEND);
-    shareIntent.putExtra(Intent.EXTRA_TEXT, text);
+    shareIntent.setAction(ACTION_SEND);
+    shareIntent.putExtra(EXTRA_SUBJECT, result.title + "(Generated with Exalted Random)");
+    shareIntent.putExtra(EXTRA_TEXT, result.text);
     shareIntent.setType("text/plain");
     if (mShareActionProvider != null) {
       mShareActionProvider.setShareIntent(shareIntent);
