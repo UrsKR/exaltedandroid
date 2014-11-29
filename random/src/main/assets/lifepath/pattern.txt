@@ -1,4 +1,4 @@
-You hail from #generalOrigin# #family#
+You hail from #generalOrigin#. #family#
 
 #familyEvent#
 #childhood# As an adult, you became #adultCareer#.
