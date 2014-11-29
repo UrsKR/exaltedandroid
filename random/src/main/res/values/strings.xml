@@ -18,4 +18,10 @@
     <string name="title_fashion">Fashion</string>
     <string name="label_risk">Risk</string>
     <string name="label_reward">Reward</string>
+    <string name="suggest_improvement">Suggest improvement</string>
+    <string name="toast_no_mail_clients">There are no email clients installed.</string>
+    <string name="label_send_mail">Send mail through…</string>
+    <string name="text_suggestion_mail_body">What could be better?\nWhat is missing?\nWhat is cool already?</string>
+    <string name="text_suggestion_mail_subject">Suggestions for Exalted Random</string>
+    <string name="text_generated_with">Generated with Exalted Random</string>
 </resources>

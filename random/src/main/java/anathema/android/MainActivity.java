@@ -8,6 +8,7 @@ import anathema.android.village.VillageGenerator;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.text.SpannableString;
 import android.text.method.LinkMovementMethod;
@@ -18,8 +19,10 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ShareActionProvider;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import static android.content.Intent.*;
+import static android.widget.Toast.LENGTH_SHORT;
 
 
 public class MainActivity extends Activity {
@@ -84,17 +87,6 @@ public class MainActivity extends Activity {
     return true;
   }
 
-  public void setShareIntent(Result result) {
-    Intent shareIntent = new Intent();
-    shareIntent.setAction(ACTION_SEND);
-    shareIntent.putExtra(EXTRA_SUBJECT, result.title + "(Generated with Exalted Random)");
-    shareIntent.putExtra(EXTRA_TEXT, result.text);
-    shareIntent.setType("text/plain");
-    if (mShareActionProvider != null) {
-      mShareActionProvider.setShareIntent(shareIntent);
-    }
-  }
-
   @Override
   public boolean onOptionsItemSelected(MenuItem item) {
     switch (item.getItemId()) {
@@ -113,5 +105,31 @@ public class MainActivity extends Activity {
             R.string.credits_title).setMessage(credits).create();
     dialog.show();
     ((TextView) dialog.findViewById(android.R.id.message)).setMovementMethod(LinkMovementMethod.getInstance());
+  }
+
+  public void setShareIntent(Result result) {
+    Intent shareIntent = new Intent();
+    shareIntent.setAction(ACTION_SEND);
+    shareIntent.putExtra(EXTRA_SUBJECT, result.title + "(" + getString(R.string.text_generated_with) + ")");
+    shareIntent.putExtra(EXTRA_TEXT, result.text);
+    shareIntent.setType("text/plain");
+    if (mShareActionProvider != null) {
+      mShareActionProvider.setShareIntent(shareIntent);
+    }
+  }
+
+  public void suggestImprovement(MenuItem item) {
+    Intent suggestIntent = new Intent(ACTION_SENDTO);
+    suggestIntent.setType("text/plain");
+    String uriText = "mailto:" + Uri.encode("ursreupke+exaltedrandom@gmail.com") +
+            "?subject=" + Uri.encode(getString(R.string.text_suggestion_mail_subject)) +
+            "&body=" + Uri.encode(getString(R.string.text_suggestion_mail_body));
+    Uri data = Uri.parse(uriText);
+    suggestIntent.setData(data);
+    try {
+      startActivity(Intent.createChooser(suggestIntent, getString(R.string.label_send_mail)));
+    } catch (android.content.ActivityNotFoundException ex) {
+      Toast.makeText(this, getString(R.string.toast_no_mail_clients), LENGTH_SHORT).show();
+    }
   }
 }
