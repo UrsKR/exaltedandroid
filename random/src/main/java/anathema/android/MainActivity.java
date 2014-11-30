@@ -110,7 +110,7 @@ public class MainActivity extends Activity {
   public void setShareIntent(Result result) {
     Intent shareIntent = new Intent();
     shareIntent.setAction(ACTION_SEND);
-    shareIntent.putExtra(EXTRA_SUBJECT, result.title + "(" + getString(R.string.text_generated_with) + ")");
+    shareIntent.putExtra(EXTRA_SUBJECT, result.title + " (" + getString(R.string.text_generated_with) + ")");
     shareIntent.putExtra(EXTRA_TEXT, result.text);
     shareIntent.setType("text/plain");
     if (mShareActionProvider != null) {
