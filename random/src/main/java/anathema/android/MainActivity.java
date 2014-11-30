@@ -4,6 +4,7 @@ import anathema.android.fashion.FashionGenerator;
 import anathema.android.flashbacks.FlashbackGenerator;
 import anathema.android.lifepath.LifepathGenerator;
 import anathema.android.manse.ManseGenerator;
+import anathema.android.name.NameGenerator;
 import anathema.android.village.VillageGenerator;
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -69,6 +70,10 @@ public class MainActivity extends Activity {
 
   public void generateLifepath(View view) {
     generateAndShow(new LifepathGenerator(getApplicationContext()));
+  }
+  
+  public void generateName(View view) {
+    generateAndShow(new NameGenerator(getApplicationContext()));
   }
 
   private void generateAndShow(Generator generator) {

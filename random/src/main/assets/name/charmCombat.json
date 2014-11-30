@@ -1,0 +1,18 @@
+{
+  "charmCombat":[
+    "Attack",
+    "Block",
+    "Blow",
+    "Counterattack",
+    "Evasion",
+    "Fist",
+    "Form",
+    "Hammer",
+    "Kick",
+    "Prana",
+    "Stance",
+    "Strike",
+    "Technique",
+    "Throw"
+  ]
+}

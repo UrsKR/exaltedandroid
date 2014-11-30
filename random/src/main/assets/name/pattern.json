@@ -1,0 +1,108 @@
+{
+  "pattern": [
+    //VoidState a)
+    "#metalStone# #animal#",
+    "#metalStone# #naturalObject#",
+    "#color# #naturalObject#",
+    "#emotionNegative# #preciousMaterial#",
+    "#color# #animal#",
+    "#heroic# #celestialBody#",
+    "#emotionPositive# #naturalObject#",
+    "#movement# #celestialBody#",
+    "#movement# #animal#",
+    "#condition# #animal#",
+    "#condition# #celestialBody#",
+    "#condition# #naturalObject#",
+    "#metalStone# #bodyPart#",
+    "#condition# #negative#",
+    "#emotionPositive# #animal#",
+    "#naturalObject# #animal#",
+    "#preciousMaterial# #weapon#",
+    "#preciousMaterial# #naturalObject#",
+    //VoidState b)
+    "#naturalObject# #destroying# #person#",
+    "#celestialBody# #destroying# #person#",
+    "#metalStone# #destroying# #person#",
+    "#metalStone# #destroying# #person#",
+    //VoidState c)
+    "#emotionPositive# #preciousMaterial# #relation#",
+    "#emotionNegative# #naturalObject# #relation#",
+    "#heroic# #naturalObject# #person#",
+    "#color# #negative# #animal#",
+    "#emotionNegative# #negative# #person#",
+    "#preciousMaterial# #building# #relation#",
+    "#color# #bodyPart# #person#",
+    "#condition# #animal# #person#",
+    "#movement# #preciousMaterial# #person#",
+    "#emotionNegative# #negative# #animal#",
+    "#metalStone# #negative# #animal#",
+    "#color# #preciousMaterial# #animal#",
+    //VoidState d)
+    "#emotionPositive# #relation# of the #location#",
+    "The #number# #person# of the #celestialBody#",
+    "The #number# #person#",
+    //VoidState e)
+    "#naturalObject# #celestialBody# #person#",
+    "#preciousMaterial# #weapon# #person#",
+    "#animal# #bodyPart# #person#",
+    "#naturalObject# #naturalObject# #person#",
+    "#celestialBody# #bodyPart# #person#",
+    "#preciousMaterial# #naturalObject# #person#",
+    //VoidState f)
+    "#emotionPositive# #preciousMaterial# #weapon# #person#",
+    "#emotionNegative# #preciousMaterial# #weapon# #person#",
+    "#heroic# #preciousMaterial# #bodyPart# #person#",
+    "#emotionPositive# #animal# #bodyPart# #person#",
+    "#heroic# #metalStone# #animal# #person#",
+    "#emotionPositive# #preciousMaterial# #naturalObject# #relation#",
+    //VoidState g)
+    "#animal# of the #celestialBody#",
+    "#animal# of the #location#",
+    "#weapon# of the #location#",
+    //VoidState h)
+    "#animal# and #celestialBody# #relation#",
+    "#negative# and #metalStone# #person#",
+    "#bodyPart# of the #animal# and the #location#",
+    "#preciousMaterial# and #metalStone# #person#",
+    "#relation# of #metalStone# and #preciousMaterial#",
+    "#condition# #negative# and #naturalObject# #bodyPart# #person#",
+    //VoidState i)
+    "#color# #bodyPart# of the #celestialBody#",
+    "#color# #person# of the #naturalObject#",
+    "#preciousMaterial# #bodyPart# of the #animal#",
+    //VoidState j)
+    "#animal# of the #emotionPositive# #celestialBody#",
+    "#relation# of the #heroic# #celestialBody#",
+    "#person# of the #color# #building#",
+    "#relation# of the #condition# #bodyPart#",
+    "#relation# of the #condition# #location#",
+    "#relation# of the #color# #celestialBody#",
+    //VoidState k)
+    "#heroic# #animal# of the #emotionNegative# #location#",
+    "#heroic# #animal# of the #emotionPositive# #naturalObject#",
+    "#movement# #weapon# of the #emotionNegative# #building#"
+  ]
+}
+/*
+new AggregatedTokenCategory("Tokens.Adjectives", new TokenCategory[] {
+  COLOR, CONDITION, EMOTION_NEGATIVE, EMOTION_POSITIVE, HEROIC, MOVEMENT, NUMBER }),
+new AggregatedTokenCategory("Tokens.Nouns", new TokenCategory[] {
+      ANIMAL,
+      BODY_PART,
+      BUILDING,
+      CELESTIAL_BODY,
+      CHARM_GENERAL,
+      CHARM_COMBAT,
+      LOCATION,
+      METAL_STONE,
+      NATURAL_OBJECT,
+      NEGATIVE,
+      PERSON,
+      PRECIOUS_MATERIAL,
+      RELATION,
+      WEAPON,
+      DESTROYING,
+      LOVING }),
+new AggregatedTokenCategory("Tokens.Verbs", new TokenCategory[] {
+  DESTROYING, LOVING, }),
+new AggregatedTokenCategory("Tokens.Glues", new TokenCategory[] { AND, FROM, IN, OF, THE }) };*/

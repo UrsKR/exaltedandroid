@@ -24,4 +24,5 @@
     <string name="text_suggestion_mail_body">Does the app need a new feature?\nDo you have a new piece of text for the generators?</string>
     <string name="text_suggestion_mail_subject">Suggestions for Exalted Random</string>
     <string name="text_generated_with">Generated with Exalted Random</string>
+    <string name="title_name">Name</string>
 </resources>

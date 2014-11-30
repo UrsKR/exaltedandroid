@@ -22,7 +22,8 @@
                     android:layout_height="wrap_content"
                     android:text="@string/button.name"
                     android:id="@+id/button_name"
-                    android:enabled="false" android:layout_weight="1"/>
+                    android:onClick="generateName"
+                    android:layout_weight="1"/>
             <Button
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
