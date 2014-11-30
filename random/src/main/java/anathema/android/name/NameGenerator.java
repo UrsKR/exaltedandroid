@@ -17,10 +17,17 @@ public class NameGenerator implements Generator {
 
   @Override
   public Result generate(DiceAndCoins diceAndCoins) {
-    String name = new PatternBasedGenerator(diceAndCoins, new FileToString(context.getAssets()), "name").generate();
+    PatternBasedGenerator generator = new PatternBasedGenerator(diceAndCoins, new FileToString(context.getAssets()),
+            "name");
+    StringBuilder names = new StringBuilder();
+    for (int i = 0; i < 10; i++) {
+      String name = generator.generate();
+      names.append(name);
+      names.append("\n");
+    }
     Result result = new Result();
     result.title = context.getString(R.string.title_name);
-    result.text = name;
+    result.text = names.toString();
     return result;
   }
 }

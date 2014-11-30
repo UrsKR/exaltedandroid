@@ -1,14 +1,20 @@
 {
   "metalStone":[
+    "Alabaster",
+    "Amethyst",
+    "Brass",
     "Bronze",
+    "Chalcedony",
     "Copper",
     "Granite",
     "Iron",
-    "Iron",
+    "Marble",
+    "Malachite",
     "Metal",
     "Obsidian",
     "Onyx",
     "Ore",
+    "Rust",
     "Steel",
     "Stone"
   ]

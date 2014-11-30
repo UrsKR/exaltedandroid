@@ -1,6 +1,6 @@
 {
   "pattern": [
-    //VoidState a)
+    //VoidState a: Adjective Noun
     "#metalStone# #animal#",
     "#metalStone# #naturalObject#",
     "#color# #naturalObject#",
@@ -19,12 +19,12 @@
     "#naturalObject# #animal#",
     "#preciousMaterial# #weapon#",
     "#preciousMaterial# #naturalObject#",
-    //VoidState b)
-    "#naturalObject# #destroying# #person#",
-    "#celestialBody# #destroying# #person#",
-    "#metalStone# #destroying# #person#",
-    "#metalStone# #destroying# #person#",
-    //VoidState c)
+    //VoidState b: Noun Gerund Nound
+    "#naturalObject# #gerund# #person#",
+    "#celestialBody# #gerund# #person#",
+    "#metalStone# #gerund# #person#",
+    "#metalStone# #gerund# #person#",
+    //VoidState c: Adjective Noun Noun
     "#emotionPositive# #preciousMaterial# #relation#",
     "#emotionNegative# #naturalObject# #relation#",
     "#heroic# #naturalObject# #person#",
@@ -37,50 +37,54 @@
     "#emotionNegative# #negative# #animal#",
     "#metalStone# #negative# #animal#",
     "#color# #preciousMaterial# #animal#",
-    //VoidState d)
+    //VoidState d: Numbered
     "#emotionPositive# #relation# of the #location#",
     "The #number# #person# of the #celestialBody#",
     "The #number# #person#",
-    //VoidState e)
+    //VoidState e: Noun Noun Noun
     "#naturalObject# #celestialBody# #person#",
     "#preciousMaterial# #weapon# #person#",
     "#animal# #bodyPart# #person#",
     "#naturalObject# #naturalObject# #person#",
     "#celestialBody# #bodyPart# #person#",
     "#preciousMaterial# #naturalObject# #person#",
-    //VoidState f)
+    //VoidState f: Adjective Noun Noun Noun
     "#emotionPositive# #preciousMaterial# #weapon# #person#",
     "#emotionNegative# #preciousMaterial# #weapon# #person#",
     "#heroic# #preciousMaterial# #bodyPart# #person#",
     "#emotionPositive# #animal# #bodyPart# #person#",
     "#heroic# #metalStone# #animal# #person#",
     "#emotionPositive# #preciousMaterial# #naturalObject# #relation#",
-    //VoidState g)
+    //VoidState g: Noun of the Noun
     "#animal# of the #celestialBody#",
     "#animal# of the #location#",
     "#weapon# of the #location#",
-    //VoidState h)
+    //VoidState h: Conjunctive
     "#animal# and #celestialBody# #relation#",
     "#negative# and #metalStone# #person#",
     "#bodyPart# of the #animal# and the #location#",
     "#preciousMaterial# and #metalStone# #person#",
     "#relation# of #metalStone# and #preciousMaterial#",
     "#condition# #negative# and #naturalObject# #bodyPart# #person#",
-    //VoidState i)
+    //VoidState i: Adjective Noun of the Noun
     "#color# #bodyPart# of the #celestialBody#",
     "#color# #person# of the #naturalObject#",
     "#preciousMaterial# #bodyPart# of the #animal#",
-    //VoidState j)
+    //VoidState j: Noun of the Adjective Noun
     "#animal# of the #emotionPositive# #celestialBody#",
     "#relation# of the #heroic# #celestialBody#",
     "#person# of the #color# #building#",
     "#relation# of the #condition# #bodyPart#",
     "#relation# of the #condition# #location#",
     "#relation# of the #color# #celestialBody#",
-    //VoidState k)
+    //VoidState k: Adjective Noun of the Adjective Noun
     "#heroic# #animal# of the #emotionNegative# #location#",
     "#heroic# #animal# of the #emotionPositive# #naturalObject#",
-    "#movement# #weapon# of the #emotionNegative# #building#"
+    "#movement# #weapon# of the #emotionNegative# #building#",
+    //WordMan: Misc
+    "#emotionPositive# #weapon# #gerund#",
+    "#heroic# #preciousMaterial# #animal# #relation# of the #condition# #location#",
+    "#weapon# #gerund# #preciousMaterial# #person#"
   ]
 }
 /*

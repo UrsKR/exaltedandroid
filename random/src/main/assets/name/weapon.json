@@ -1,16 +1,23 @@
 {
   "weapon":[
+    "Armor",
+    "Arrow",
     "Axe",
     "Blade",
     "Bow",
+    "Daiklave",
     "Fist",
     "Gauntlet",
     "Hammer",
+    "Helmet",
     "Knife",
     "Lance",
+    "Light",
+    "Net",
     "Shield",
     "Spear",
     "Staff",
-    "Sword"
+    "Sword",
+    "Trident"
   ]
 }

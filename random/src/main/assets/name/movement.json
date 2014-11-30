@@ -2,10 +2,12 @@
   "movement": [
     "Ascending",
     "Descending",
+    "Falling",
     "Flickering",
     "Flowing",
     "Fluttering",
     "Leaping",
+    "Plummeting",
     "Running",
     "Soaring",
     "Still",
