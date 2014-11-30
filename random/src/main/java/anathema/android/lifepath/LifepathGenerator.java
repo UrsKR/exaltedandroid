@@ -26,6 +26,28 @@ public class LifepathGenerator implements Generator {
   @Override
   public Result generate(DiceAndCoins diceAndCoins) {
     String lifepath = new GenerateLifepath(diceAndCoins, new FileToString(context.getAssets())).generate();
+    String suggestionString = compileSuggestedTraits(lifepath);
+    lifepath = removeSuggestionsFromLifepath(lifepath);
+    lifepath += "\n\nSuggested traits to reflect this background: " + suggestionString;
+    Result result = new Result();
+    result.title = context.getString(R.string.title_lifepath);
+    result.text = lifepath;
+    return result;
+  }
+
+  private String compileSuggestedTraits(String lifepath) {
+    Set<String> suggestions = findSuggestedTraitsInLifepath(lifepath);
+    return buildSuggestionsAsString(suggestions);
+  }
+
+  private String buildSuggestionsAsString(Set<String> suggestions) {
+    if (suggestions.isEmpty()) {
+      return "None";
+    }
+    return TextUtils.join(", ", suggestions);
+  }
+
+  private Set<String> findSuggestedTraitsInLifepath(String lifepath) {
     Matcher suggestionMatcher = Pattern.compile(Pattern_Suggestion).matcher(lifepath);
     Set<String> suggestions = new LinkedHashSet<>();
     while (suggestionMatcher.find()) {
@@ -34,17 +56,16 @@ public class LifepathGenerator implements Generator {
         suggestions.add(suggestion);
       }
     }
+    return suggestions;
+  }
+
+  private String removeSuggestionsFromLifepath(String lifepath) {
     lifepath = lifepath.replaceAll(Pattern_Suggestion, "");
     lifepath = lifepath.replaceAll(Pattern_DoubleBlank, " ");
     lifepath = lifepath.replaceAll(" \\.", ".");
     lifepath = lifepath.replaceAll(" ,", ",");
     lifepath = lifepath.replaceAll(" s\\.", "s.");
     lifepath = lifepath.replaceAll(" 's", "'s");
-    String suggestionString = TextUtils.join(", ", suggestions);
-    lifepath += "\n\nSuggested traits to reflect this background: " + suggestionString;
-    Result result = new Result();
-    result.title = context.getString(R.string.title_lifepath);
-    result.text = lifepath;
-    return result;
+    return lifepath;
   }
 }
