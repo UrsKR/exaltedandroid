@@ -16,7 +16,6 @@ import java.util.regex.Pattern;
 //http://lovethelabyrinth.blogspot.de/2014/10/exalted-3e-lifepathing-your-character.html
 public class LifepathGenerator implements Generator {
   private static final String Pattern_Suggestion = "\\((.*?)\\)";
-  private static final String Pattern_DoubleBlank = "  ";
   private Context context;
 
   public LifepathGenerator(Context context) {
@@ -61,7 +60,12 @@ public class LifepathGenerator implements Generator {
 
   private String removeSuggestionsFromLifepath(String lifepath) {
     lifepath = lifepath.replaceAll(Pattern_Suggestion, "");
-    lifepath = lifepath.replaceAll(Pattern_DoubleBlank, " ");
+    lifepath = cleanUpExcessWhitespace(lifepath);
+    return lifepath;
+  }
+
+  private String cleanUpExcessWhitespace(String lifepath) {
+    lifepath = lifepath.replaceAll("  ", " ");
     lifepath = lifepath.replaceAll(" \\.", ".");
     lifepath = lifepath.replaceAll(" ,", ",");
     lifepath = lifepath.replaceAll(" s\\.", "s.");
