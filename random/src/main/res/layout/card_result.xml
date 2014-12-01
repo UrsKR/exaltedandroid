@@ -4,20 +4,22 @@
                                     android:layout_gravity="center"
                                     android:layout_width="fill_parent"
                                     android:layout_height="wrap_content"
-                                    card_view:cardCornerRadius="4dp"
-                                    card_view:cardBackgroundColor="#FFC107" 
+                                    card_view:cardCornerRadius="2dp"
+                                    card_view:cardBackgroundColor="#FFB300" 
                                     card_view:cardElevation="5dp" android:layout_marginTop="5dp">
-  <!--Background is Material Amber 500-->
+  <!--Background is Material Amber 600-->
   <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:layout_margin="5dp">
     <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="#212121"
             android:id="@+id/text_name"
             android:layout_marginBottom="5dp"/>
     <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="#212121"
             android:id="@+id/text_detail"/>
   </LinearLayout>
 </android.support.v7.widget.CardView>
