@@ -6,7 +6,7 @@
                                     android:layout_height="wrap_content"
                                     card_view:cardCornerRadius="2dp"
                                     card_view:cardBackgroundColor="#FFB300" 
-                                    card_view:cardElevation="5dp" android:layout_marginTop="5dp">
+                                    card_view:cardElevation="2dp" android:layout_marginTop="7dp">
   <!--Background is Material Amber 600-->
   <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:layout_margin="5dp">
     <TextView

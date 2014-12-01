@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:android="http://schemas.android.com/apk/res/android">
-    <style name="AppTheme" parent="android:Theme.Material">
+    <style name="AppTheme" parent="android:Theme.Material.Light">
         <item name="android:colorPrimary">#FFC107</item> <!--Material Amber 500-->
         <item name="android:colorPrimaryDark">#FFA000</item> <!--Material Amber 700-->
     </style>
