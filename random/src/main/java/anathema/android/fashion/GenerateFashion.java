@@ -30,7 +30,8 @@ public class GenerateFashion {
     Person wearer = Person.randomize(diceAndCoins);
     Colors colors = rollColors();
     namedValues.put("personal", wearer.personal);
-    namedValues.put("possessive", wearer.possessive);
+    namedValues.put("possessive", wearer.possessiveDeterminer);
+    namedValues.put("possessivePronoun", wearer.possessivePronoun);
     namedValues.put("primaryColor", colors.primaryColor);
     namedValues.put("highlightColor", colors.highlightColor);
     String pattern = fileToString.loadFile("fashion/pattern.txt");

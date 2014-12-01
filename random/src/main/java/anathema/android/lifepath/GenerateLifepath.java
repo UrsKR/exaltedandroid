@@ -27,6 +27,6 @@ public class GenerateLifepath {
 
   @SuppressWarnings("UnusedDeclaration")    // called via JSON reflection
   public String rollPossessive() {
-    return Person.randomize(diceAndCoins).possessive;
+    return Person.randomize(diceAndCoins).possessiveDeterminer;
   }
 }

@@ -5,19 +5,24 @@ import anathema.android.Flip;
 
 public class Person {
 
+
+
   public static Person randomize(DiceAndCoins diceAndCoins) {
     Flip flip = diceAndCoins.flipACoin();
     Person person = new Person();
     if (flip == Flip.Head) {
       person.personal = "he";
-      person.possessive = "his";
+      person.possessiveDeterminer = "his";
+      person.possessivePronoun = "his";
     } else {
       person.personal = "she";
-      person.possessive = "her";
+      person.possessiveDeterminer = "her";
+      person.possessivePronoun = "hers";
     }
     return person;
   }
 
   public String personal;
-  public String possessive;
+  public String possessiveDeterminer;
+  public String possessivePronoun;
 }
