@@ -34,7 +34,7 @@ public class JsonTableResolver implements PlaceholderResolver {
       } else {
         replacement = randomizer.pickElementFromJsonArray(placeholder);
       }
-      resolvedText = resolvedText.replaceAll("#" + placeholder + "#", replacement);
+      resolvedText = resolvedText.replaceFirst("#" + placeholder + "#", replacement);
     }
     return resolvedText;
   }
