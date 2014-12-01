@@ -16,9 +16,11 @@ import android.support.v7.widget.RecyclerView;
 import android.text.SpannableString;
 import android.text.method.LinkMovementMethod;
 import android.text.util.Linkify;
+import android.view.GestureDetector;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ShareActionProvider;
 import android.widget.TextView;
@@ -27,7 +29,10 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
-import static android.content.Intent.*;
+import static android.content.Intent.ACTION_SEND;
+import static android.content.Intent.ACTION_SENDTO;
+import static android.content.Intent.EXTRA_SUBJECT;
+import static android.content.Intent.EXTRA_TEXT;
 import static android.widget.Toast.LENGTH_SHORT;
 
 
@@ -38,6 +43,7 @@ public class MainActivity extends Activity {
   private RecyclerView resultView;
   private ShareActionProvider shareActionProvider;
   private ResultAdapter resultAdapter;
+  private View childView;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +53,33 @@ public class MainActivity extends Activity {
     resultView.setLayoutManager(new LinearLayoutManager(this));
     resultAdapter = new ResultAdapter(dataset);
     resultView.setAdapter(resultAdapter);
+    final GestureDetector detector = new GestureDetector(MainActivity.this, new SwipeListener() {
+      @Override
+      public void onSwipeRight(float diffX) {
+        if (diffX > childView.getWidth()/2) {
+          childView.animate().translationX(childView.getWidth() + 10);
+          int childPosition = resultView.getChildPosition(childView);
+          dataset.remove(childPosition);
+          resultAdapter.notifyItemRemoved(childPosition);
+        }
+        else {
+          //Animate the item returning to its place.
+        }
+      }
+    });
+    resultView.addOnItemTouchListener(new RecyclerView.OnItemTouchListener() {
+      @Override
+      public boolean onInterceptTouchEvent(RecyclerView recyclerView, MotionEvent motionEvent) {
+        childView = recyclerView.findChildViewUnder(motionEvent.getX(), motionEvent.getY());
+        detector.onTouchEvent(motionEvent);
+        return false;
+      }
+
+      @Override
+      public void onTouchEvent(RecyclerView recyclerView, final MotionEvent motionEvent) {
+        //nothing to do
+      }
+    });
   }
 
   public void generateManse(View view) {
@@ -68,7 +101,7 @@ public class MainActivity extends Activity {
   public void generateLifepath(View view) {
     generateAndShow(new LifepathGenerator(getApplicationContext()));
   }
-  
+
   public void generateName(View view) {
     generateAndShow(new NameGenerator(getApplicationContext()));
   }
