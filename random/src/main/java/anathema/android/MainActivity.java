@@ -34,22 +34,19 @@ import static android.widget.Toast.LENGTH_SHORT;
 public class MainActivity extends Activity {
 
   private final DiceAndCoins diceAndCoins = new DiceAndCoins();
-  private ShareActionProvider mShareActionProvider;
-  private RecyclerView mRecyclerView;
-  private LinearLayoutManager mLayoutManager;
   private List<Result> dataset = new ArrayList<>();
-  private ResultAdapter mAdapter;
+  private RecyclerView resultView;
+  private ShareActionProvider shareActionProvider;
+  private ResultAdapter resultAdapter;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
-    mRecyclerView = (RecyclerView) findViewById(R.id.result_view);
-    mLayoutManager = new LinearLayoutManager(this);
-    mLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
-    mRecyclerView.setLayoutManager(mLayoutManager);
-    mAdapter = new ResultAdapter(dataset);
-    mRecyclerView.setAdapter(mAdapter);
+    resultView = (RecyclerView) findViewById(R.id.result_view);
+    resultView.setLayoutManager(new LinearLayoutManager(this));
+    resultAdapter = new ResultAdapter(dataset);
+    resultView.setAdapter(resultAdapter);
   }
 
   public void generateManse(View view) {
@@ -79,8 +76,8 @@ public class MainActivity extends Activity {
   private void generateAndShow(Generator generator) {
     Result result = generator.generate(diceAndCoins);
     dataset.add(0, result);
-    mAdapter.notifyItemInserted(0);
-    mRecyclerView.scrollToPosition(0);
+    resultAdapter.notifyItemInserted(0);
+    resultView.scrollToPosition(0);
     setShareIntent(result);
   }
 
@@ -89,7 +86,7 @@ public class MainActivity extends Activity {
     MenuInflater inflater = getMenuInflater();
     inflater.inflate(R.menu.menu_main, menu);
     MenuItem item = menu.findItem(R.id.menu_item_share);
-    mShareActionProvider = (ShareActionProvider) item.getActionProvider();
+    shareActionProvider = (ShareActionProvider) item.getActionProvider();
     return true;
   }
 
@@ -119,8 +116,8 @@ public class MainActivity extends Activity {
     shareIntent.putExtra(EXTRA_SUBJECT, result.title + " (" + getString(R.string.text_generated_with) + ")");
     shareIntent.putExtra(EXTRA_TEXT, result.text);
     shareIntent.setType("text/plain");
-    if (mShareActionProvider != null) {
-      mShareActionProvider.setShareIntent(shareIntent);
+    if (shareActionProvider != null) {
+      shareActionProvider.setShareIntent(shareIntent);
     }
   }
 

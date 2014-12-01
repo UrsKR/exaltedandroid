@@ -18,8 +18,6 @@ public class ResultAdapter extends RecyclerView.Adapter<ResultAdapter.ViewHolder
   @Override
   public ResultAdapter.ViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
     View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.card_result, viewGroup, false);
-    view.setMinimumHeight(30);
-    view.setMinimumWidth(50);
     return new ViewHolder(view);
   }
 

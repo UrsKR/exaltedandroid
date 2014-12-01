@@ -59,7 +59,6 @@
               android:onClick="generateFlashback" android:layout_weight="1"/>
     </LinearLayout>
   </LinearLayout>
-  <!-- A RecyclerView with some commonly used attributes -->
   <android.support.v7.widget.RecyclerView
           android:id="@+id/result_view"
           android:scrollbars="vertical"
