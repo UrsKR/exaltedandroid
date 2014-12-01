@@ -11,6 +11,8 @@ import android.app.AlertDialog;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.text.SpannableString;
 import android.text.method.LinkMovementMethod;
 import android.text.util.Linkify;
@@ -22,6 +24,9 @@ import android.widget.ShareActionProvider;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static android.content.Intent.*;
 import static android.widget.Toast.LENGTH_SHORT;
 
@@ -29,27 +34,22 @@ import static android.widget.Toast.LENGTH_SHORT;
 public class MainActivity extends Activity {
 
   private final DiceAndCoins diceAndCoins = new DiceAndCoins();
-  private TitleTextFragment fragment;
   private ShareActionProvider mShareActionProvider;
+  private RecyclerView mRecyclerView;
+  private LinearLayoutManager mLayoutManager;
+  private List<Result> dataset = new ArrayList<>();
+  private ResultAdapter mAdapter;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
-    if (savedInstanceState == null) {
-      this.fragment = new TitleTextFragment();
-      getFragmentManager().beginTransaction().add(R.id.fragment_container, fragment).commit();
-    } else {
-      this.fragment = (TitleTextFragment) getFragmentManager().getFragment(savedInstanceState,
-              TitleTextFragment.class.getName());
-    }
-  }
-
-  @SuppressWarnings("NullableProblems")
-  @Override
-  protected void onSaveInstanceState(Bundle outState) {
-    super.onSaveInstanceState(outState);
-    getFragmentManager().putFragment(outState, TitleTextFragment.class.getName(), fragment);
+    mRecyclerView = (RecyclerView) findViewById(R.id.result_view);
+    mLayoutManager = new LinearLayoutManager(this);
+    mLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+    mRecyclerView.setLayoutManager(mLayoutManager);
+    mAdapter = new ResultAdapter(dataset);
+    mRecyclerView.setAdapter(mAdapter);
   }
 
   public void generateManse(View view) {
@@ -78,8 +78,9 @@ public class MainActivity extends Activity {
 
   private void generateAndShow(Generator generator) {
     Result result = generator.generate(diceAndCoins);
-    fragment.setTitle(result.title);
-    fragment.setText(result.text);
+    dataset.add(0, result);
+    mAdapter.notifyItemInserted(0);
+    mRecyclerView.scrollToPosition(0);
     setShareIntent(result);
   }
 

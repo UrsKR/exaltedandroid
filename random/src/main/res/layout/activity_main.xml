@@ -9,58 +9,61 @@
                 tools:context=".MainActivity" android:id="@+id/exaltedrandom">
 
 
+  <LinearLayout
+          android:orientation="vertical"
+          android:layout_width="fill_parent"
+          android:layout_height="wrap_content" android:id="@+id/linearLayout">
     <LinearLayout
-            android:orientation="vertical"
+            android:orientation="horizontal"
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content" android:id="@+id/linearLayout">
-        <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content">
-            <Button
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:text="@string/button.name"
-                    android:id="@+id/button_name"
-                    android:onClick="generateName"
-                    android:layout_weight="1"/>
-            <Button
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:text="@string/button.fashion"
-                    android:id="@+id/button_fashion"
-                    android:onClick="generateFashion" android:layout_weight="1"/>
-            <Button
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:text="@string/button.lifepath"
-                    android:id="@+id/button_lifepath" android:onClick="generateLifepath" android:layout_weight="1"/>
-        </LinearLayout>
-        <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content">
-            <Button
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:text="@string/button.village"
-                    android:id="@+id/button_village" android:layout_weight="1" android:onClick="generateVillage"/>
-            <Button
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:text="@string/button.manse"
-                    android:id="@+id/button_manse"
-                    android:onClick="generateManse" android:layout_weight="1"/>
-            <Button
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:text="@string/button.vision"
-                    android:id="@+id/button_vision"
-                    android:onClick="generateFlashback" android:layout_weight="1"/>
-        </LinearLayout>
+            android:layout_height="wrap_content">
+      <Button
+              android:layout_width="0dp"
+              android:layout_height="wrap_content"
+              android:text="@string/button.name"
+              android:id="@+id/button_name"
+              android:onClick="generateName"
+              android:layout_weight="1"/>
+      <Button
+              android:layout_width="0dp"
+              android:layout_height="wrap_content"
+              android:text="@string/button.fashion"
+              android:id="@+id/button_fashion"
+              android:onClick="generateFashion" android:layout_weight="1"/>
+      <Button
+              android:layout_width="0dp"
+              android:layout_height="wrap_content"
+              android:text="@string/button.lifepath"
+              android:id="@+id/button_lifepath" android:onClick="generateLifepath" android:layout_weight="1"/>
     </LinearLayout>
-    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                 android:id="@+id/fragment_container"
-                 android:layout_width="match_parent"
-                 android:layout_height="match_parent" android:layout_below="@+id/linearLayout"/>
+    <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+      <Button
+              android:layout_width="0dp"
+              android:layout_height="wrap_content"
+              android:text="@string/button.village"
+              android:id="@+id/button_village" android:layout_weight="1" android:onClick="generateVillage"/>
+      <Button
+              android:layout_width="0dp"
+              android:layout_height="wrap_content"
+              android:text="@string/button.manse"
+              android:id="@+id/button_manse"
+              android:onClick="generateManse" android:layout_weight="1"/>
+      <Button
+              android:layout_width="0dp"
+              android:layout_height="wrap_content"
+              android:text="@string/button.vision"
+              android:id="@+id/button_vision"
+              android:onClick="generateFlashback" android:layout_weight="1"/>
+    </LinearLayout>
+  </LinearLayout>
+  <!-- A RecyclerView with some commonly used attributes -->
+  <android.support.v7.widget.RecyclerView
+          android:id="@+id/result_view"
+          android:scrollbars="vertical"
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          tools:listItem="@layout/fragment_titletext" android:layout_below="@+id/linearLayout"/>
 </RelativeLayout>

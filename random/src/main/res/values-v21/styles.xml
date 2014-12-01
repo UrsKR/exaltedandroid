@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:android="http://schemas.android.com/apk/res/android">
     <style name="AppTheme" parent="android:Theme.Material">
-        <item name="android:colorPrimary">#ffffb527</item>
-        <item name="android:colorPrimaryDark">#ffe6a027</item>
+        <item name="android:colorPrimary">#FFB300</item> <!--Material Amber 600-->
+        <item name="android:colorPrimaryDark">#FFA000</item> <!--Material Amber 700-->
     </style>
 </resources>
