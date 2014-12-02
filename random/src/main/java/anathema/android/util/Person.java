@@ -11,18 +11,18 @@ public class Person {
     Flip flip = diceAndCoins.flipACoin();
     Person person = new Person();
     if (flip == Flip.Head) {
-      person.personal = "he";
+      person.subject = "he";
       person.possessiveDeterminer = "his";
       person.possessivePronoun = "his";
     } else {
-      person.personal = "she";
+      person.subject = "she";
       person.possessiveDeterminer = "her";
       person.possessivePronoun = "hers";
     }
     return person;
   }
 
-  public String personal;
+  public String subject;
   public String possessiveDeterminer;
   public String possessivePronoun;
 }

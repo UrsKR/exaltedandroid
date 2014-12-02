@@ -29,7 +29,7 @@ public class GenerateFashion {
   public String generate() {
     Person wearer = Person.randomize(diceAndCoins);
     Colors colors = rollColors();
-    namedValues.put("personal", wearer.personal);
+    namedValues.put("subject", wearer.subject);
     namedValues.put("possessive", wearer.possessiveDeterminer);
     namedValues.put("possessivePronoun", wearer.possessivePronoun);
     namedValues.put("primaryColor", colors.primaryColor);
