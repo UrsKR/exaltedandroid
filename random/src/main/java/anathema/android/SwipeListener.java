@@ -23,7 +23,7 @@ public class SwipeListener extends GestureDetector.SimpleOnGestureListener {
       if (Math.abs(diffX) > Math.abs(diffY)) {
         if (Math.abs(diffX) > SWIPE_THRESHOLD && Math.abs(velocityX) > SWIPE_VELOCITY_THRESHOLD) {
           if (diffX > 0) {
-            onSwipeRight(diffX);
+            onFlingRight(diffX);
           } else {
             onSwipeLeft();
           }
@@ -44,7 +44,7 @@ public class SwipeListener extends GestureDetector.SimpleOnGestureListener {
     return result;
   }
 
-  public void onSwipeRight(float diffX) {
+  public void onFlingRight(float diffX) {
   }
 
   public void onSwipeLeft() {
@@ -52,7 +52,7 @@ public class SwipeListener extends GestureDetector.SimpleOnGestureListener {
 
   public void onSwipeTop() {
   }
-  
+
   public void onSwipeBottom() {
   }
 }

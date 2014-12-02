@@ -43,7 +43,8 @@ public class MainActivity extends Activity {
   private RecyclerView resultView;
   private ShareActionProvider shareActionProvider;
   private ResultAdapter resultAdapter;
-  private View childView;
+  private View touchedChildView;
+  private float touchStartX;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -55,14 +56,10 @@ public class MainActivity extends Activity {
     resultView.setAdapter(resultAdapter);
     final GestureDetector detector = new GestureDetector(MainActivity.this, new SwipeListener() {
       @Override
-      public void onSwipeRight(float diffX) {
-        if (diffX > childView.getWidth()/2) {
-          childView.animate().translationX(childView.getWidth() + 10);
-          int childPosition = resultView.getChildPosition(childView);
-          dataset.remove(childPosition);
-          resultAdapter.notifyItemRemoved(childPosition);
-        }
-        else {
+      public void onFlingRight(float diffX) {
+        if (diffX > touchedChildView.getWidth() / 2) {
+          removeDataset();
+        } else {
           //Animate the item returning to its place.
         }
       }
@@ -70,8 +67,34 @@ public class MainActivity extends Activity {
     resultView.addOnItemTouchListener(new RecyclerView.OnItemTouchListener() {
       @Override
       public boolean onInterceptTouchEvent(RecyclerView recyclerView, MotionEvent motionEvent) {
-        childView = recyclerView.findChildViewUnder(motionEvent.getX(), motionEvent.getY());
-        detector.onTouchEvent(motionEvent);
+        touchedChildView = recyclerView.findChildViewUnder(motionEvent.getX(), motionEvent.getY());
+        if (touchedChildView == null){
+          return false;
+        }
+        boolean consumed = detector.onTouchEvent(motionEvent);
+        if (!consumed) {
+          System.out.println(motionEvent.getActionMasked());
+          if (motionEvent.getActionMasked() == MotionEvent.ACTION_MOVE) {
+            if (touchStartX == 0f){
+              touchStartX = motionEvent.getRawX();
+              return false;
+            }
+            else {
+              float diffX = motionEvent.getRawX() - touchStartX;
+              System.out.println(motionEvent.getRawX() + "-" + touchStartX + "=" + diffX);
+              if (diffX > 0) {
+                touchedChildView.animate().setStartDelay(0).setDuration(0).translationX(diffX).start();
+              }
+            }
+          } else if (motionEvent.getActionMasked() == MotionEvent.ACTION_UP) {
+            if (touchedChildView.getTranslationX() < touchedChildView.getWidth() / 2) {
+              touchedChildView.animate().translationX(0);
+            }
+            else {
+              removeDataset();
+            }
+          }
+        }
         return false;
       }
 
@@ -80,6 +103,14 @@ public class MainActivity extends Activity {
         //nothing to do
       }
     });
+  }
+
+  private void removeDataset() {
+    touchedChildView.animate().translationX(touchedChildView.getWidth() + 10);
+    int childPosition = resultView.getChildPosition(touchedChildView);
+    dataset.remove(childPosition);
+    resultAdapter.notifyItemRemoved(childPosition);
+    touchedChildView.animate().translationX(0);
   }
 
   public void generateManse(View view) {
