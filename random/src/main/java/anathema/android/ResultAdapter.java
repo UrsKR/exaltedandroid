@@ -16,7 +16,7 @@ public class ResultAdapter extends RecyclerView.Adapter<ResultAdapter.ViewHolder
   }
 
   @Override
-  public ResultAdapter.ViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
+  public ResultAdapter.ViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
     View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.card_result, viewGroup, false);
     return new ViewHolder(view);
   }
