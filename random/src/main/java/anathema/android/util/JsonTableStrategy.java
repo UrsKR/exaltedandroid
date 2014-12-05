@@ -32,10 +32,8 @@ public class JsonTableStrategy implements ResolutionStrategy {
 
   private String findOriginalResult(String array) {
     String candidate = randomizer.pickElementFromJsonArray(array);
-    System.out.println(candidate);
     while (candidate.equals(rolledResults.get(array))) {
       candidate = randomizer.pickElementFromJsonArray(array);
-      System.out.println("Reroll:" + candidate);
     }
     return candidate;
   }
