@@ -140,4 +140,10 @@ public class MainActivity extends Activity {
     }
   }
 
+  public void selectCardToCopy(View view) {
+    int childPosition = resultView.getChildPosition(view);
+    Result result = dataset.get(childPosition);
+    setShareIntent(result);
+    Toast.makeText(this, getString(R.string.toast_copied_for_share), LENGTH_SHORT).show();
+  }
 }
