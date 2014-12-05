@@ -36,6 +36,7 @@ import static android.widget.Toast.LENGTH_SHORT;
 
 public class MainActivity extends Activity {
 
+  public static final int MAX_CACHE_SIZE = 20;
   private final DiceAndCoins diceAndCoins = new DiceAndCoins();
   private List<Result> dataset = new ArrayList<>();
   private RecyclerView resultView;
@@ -80,6 +81,12 @@ public class MainActivity extends Activity {
   private void generateAndShow(Generator generator) {
     Result result = generator.generate(diceAndCoins);
     dataset.add(0, result);
+    if (dataset.size() > MAX_CACHE_SIZE) {
+      for (int item = dataset.size() - 1; item >= MAX_CACHE_SIZE; item--) {
+        dataset.remove(item);
+        resultAdapter.notifyItemRemoved(item);
+      }
+    }
     resultAdapter.notifyItemInserted(0);
     resultView.scrollToPosition(0);
     setShareIntent(result);
