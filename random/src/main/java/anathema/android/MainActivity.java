@@ -81,15 +81,19 @@ public class MainActivity extends Activity {
   private void generateAndShow(Generator generator) {
     Result result = generator.generate(diceAndCoins);
     dataset.add(0, result);
+    removeExcessItems();
+    resultAdapter.notifyItemInserted(0);
+    resultView.scrollToPosition(0);
+    setShareIntent(result);
+  }
+
+  private void removeExcessItems() {
     if (dataset.size() > MAX_CACHE_SIZE) {
       for (int item = dataset.size() - 1; item >= MAX_CACHE_SIZE; item--) {
         dataset.remove(item);
         resultAdapter.notifyItemRemoved(item);
       }
     }
-    resultAdapter.notifyItemInserted(0);
-    resultView.scrollToPosition(0);
-    setShareIntent(result);
   }
 
   @Override
