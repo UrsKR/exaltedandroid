@@ -52,6 +52,7 @@ public class MainActivity extends Activity {
     resultAdapter = new ResultAdapter(dataset);
     resultView.setAdapter(resultAdapter);
     resultView.addItemDecoration(new GapDecoration());
+    resultView.addOnItemTouchListener(new ClickedCardRaiser());
   }
 
   public void generateManse(View view) {
@@ -146,4 +147,5 @@ public class MainActivity extends Activity {
     setShareIntent(result);
     Toast.makeText(this, getString(R.string.toast_copied_for_share), LENGTH_SHORT).show();
   }
+
 }
