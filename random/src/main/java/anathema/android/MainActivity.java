@@ -94,17 +94,6 @@ public class MainActivity extends Activity {
     return true;
   }
 
-  @Override
-  public boolean onOptionsItemSelected(MenuItem item) {
-    switch (item.getItemId()) {
-      case R.id.item_credits:
-        showCredits(item);
-        return true;
-      default:
-        return super.onOptionsItemSelected(item);
-    }
-  }
-
   public void showCredits(MenuItem item) {
     SpannableString credits = new SpannableString(getString(R.string.credits_text));
     Linkify.addLinks(credits, Linkify.ALL);
