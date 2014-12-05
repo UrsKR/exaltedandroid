@@ -50,6 +50,7 @@ public class MainActivity extends Activity {
     resultView.setLayoutManager(new LinearLayoutManager(this));
     resultAdapter = new ResultAdapter(dataset);
     resultView.setAdapter(resultAdapter);
+    resultView.addItemDecoration(new GapDecoration());
   }
 
   public void generateManse(View view) {
@@ -138,4 +139,5 @@ public class MainActivity extends Activity {
       Toast.makeText(this, getString(R.string.toast_no_mail_clients), LENGTH_SHORT).show();
     }
   }
+
 }
