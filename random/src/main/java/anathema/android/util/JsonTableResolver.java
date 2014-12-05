@@ -5,9 +5,11 @@ import java.util.regex.Pattern;
 
 public class JsonTableResolver implements PlaceholderResolver {
   public static final String JSON_TABLE_PATTERN = "#(.+?)#";
+  private final PatternBasedResolver resolver;
   private Randomizer randomizer;
 
   public JsonTableResolver(Randomizer randomizer) {
+    this.resolver = new PatternBasedResolver(JSON_TABLE_PATTERN);
     this.randomizer = randomizer;
   }
 
@@ -20,7 +22,7 @@ public class JsonTableResolver implements PlaceholderResolver {
 
   @Override
   public boolean moreToResolve(String resolved) {
-    return Pattern.compile(JSON_TABLE_PATTERN).matcher(resolved).find();
+    return resolver.moreToResolve(resolved);
   }
 
   private String resolveThroughJsonRolls(Matcher matcher, String unresolved) {

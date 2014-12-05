@@ -8,8 +8,10 @@ public class MethodCallResolver implements PlaceholderResolver {
   public static final String METHOD_CALL_PATTERN = "%(.+?)%";
   private final Class clazz;
   private final Object instance;
+  private final PatternBasedResolver resolver;
 
   public MethodCallResolver(Class clazz, Object instance) {
+    this.resolver = new PatternBasedResolver(METHOD_CALL_PATTERN);
     this.clazz = clazz;
     this.instance = instance;
   }
@@ -23,7 +25,7 @@ public class MethodCallResolver implements PlaceholderResolver {
 
   @Override
   public boolean moreToResolve(String resolved) {
-    return Pattern.compile(METHOD_CALL_PATTERN).matcher(resolved).find();
+    return resolver.moreToResolve(resolved);
   }
 
   @SuppressWarnings("unchecked")
