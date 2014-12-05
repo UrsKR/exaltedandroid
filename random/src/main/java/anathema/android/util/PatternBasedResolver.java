@@ -24,7 +24,7 @@ public class PatternBasedResolver implements PlaceholderResolver{
     while (matcher.find()) {
       String placeholder = matcher.group(1);
       String replacement = strategy.findReplacement(placeholder);
-      resolvedText = resolvedText.replaceAll(markingCharacter + placeholder + markingCharacter, replacement);
+      resolvedText = resolvedText.replaceFirst(markingCharacter + placeholder + markingCharacter, replacement);
     }
     return resolvedText;
   }
