@@ -18,7 +18,7 @@
     "~subject~ hides ~possessive~ face behind a  #pattern,name# mask.",
     "~possessive~ hands bear a number of heavy rings, all fashioned after a #pattern,name#'s form.",
     "~possessive~ hands bear a number of heavy rings, all fashioned after a #pattern,name#'s form.",
-    "#primaryAccessory#",
-    "#primaryAccessory#"
+    "#primaryAccessory!noRepetition#",
+    "#primaryAccessory!noRepetition#"
   ]
  }

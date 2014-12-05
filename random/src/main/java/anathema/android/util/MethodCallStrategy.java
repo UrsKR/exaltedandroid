@@ -2,7 +2,7 @@ package anathema.android.util;
 
 import java.lang.reflect.InvocationTargetException;
 
-class MethodCallStrategy implements ResolutionStrategy {
+public class MethodCallStrategy implements ResolutionStrategy {
   private final Class clazz;
   private final Object instance;
 

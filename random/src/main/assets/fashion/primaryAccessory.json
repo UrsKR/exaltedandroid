@@ -18,7 +18,7 @@
     "Much of ~possessive~ body is covered with an intricate #prismaticColor# #pattern,name# tattoo.",
     "~possessive~ body is adorned with #materialColor# jewelry, showing #pattern,name#s in various shapes and stances.",
     "~possessive~ body is adorned with #materialColor# jewelry, showing #pattern,name#s in various shapes and stances.",
-    "#secondaryAccessory#",
-    "#secondaryAccessory#"
+    "#secondaryAccessory!noRepetition#",
+    "#secondaryAccessory!noRepetition#"
   ]
 }

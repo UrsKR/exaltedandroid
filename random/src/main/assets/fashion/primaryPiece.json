@@ -18,7 +18,7 @@
     "~subject~ is wrapped in vines and foliage.",
     "~subject~ presents a uniform with a ~highlightColor~ #pattern,name# on its high collar.",
     "~subject~ presents a uniform with a ~highlightColor~ #pattern,name# on its high collar.",
-    "#secondaryPiece#",
-    "#secondaryPiece#"
+    "#secondaryPiece!noRepetition#",
+    "#secondaryPiece!noRepetition#"
   ]
 }

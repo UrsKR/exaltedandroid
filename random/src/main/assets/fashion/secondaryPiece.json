@@ -18,7 +18,7 @@
     "Almost as prominent is ~possessive~ massive utility vest, stuffed with tools.",
     "#pattern,attribute# symbols give ~possessive~ appearance a spiritual air.",
     "#pattern,attribute# symbols give ~possessive~ appearance a spiritual air.",
-    "#primaryPiece#",
-    "#primaryPiece#"
+    "#primaryPiece!noRepetition#",
+    "#primaryPiece!noRepetition#"
   ]
 }
