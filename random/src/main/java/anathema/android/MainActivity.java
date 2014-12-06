@@ -52,7 +52,7 @@ public class MainActivity extends Activity {
     resultAdapter = new ResultAdapter(dataset);
     resultView.setAdapter(resultAdapter);
     resultView.addItemDecoration(new GapDecoration());
-    resultView.addOnItemTouchListener(new ClickedCardRaiser());
+    //resultView.addOnItemTouchListener(new ClickedCardRaiser());
   }
 
   public void generateManse(View view) {
